@@ -7,3 +7,4 @@
 .identity-copy{display:flex;flex-direction:column;line-height:1.15}.identity-copy strong{font-size:14px;font-weight:650}.identity-copy small{margin-top:3px;color:var(--muted);font:500 9px 'JetBrains Mono',monospace;letter-spacing:.05em;text-transform:uppercase}
 .card-content{height:228px}.skill-list{min-height:0}.skill-list li{padding-top:4px;padding-bottom:4px}@media(max-width:760px){.card-content{height:228px}}
 .site-header nav a{display:inline-flex;align-items:center;gap:7px}.site-header nav svg{width:15px;height:15px;fill:currentColor;flex:none}
+.avatar{object-fit:cover}
