@@ -8,3 +8,4 @@
 .card-content{height:228px}.skill-list{min-height:0}.skill-list li{padding-top:4px;padding-bottom:4px}@media(max-width:760px){.card-content{height:228px}}
 .site-header nav a{display:inline-flex;align-items:center;gap:7px}.site-header nav svg{width:15px;height:15px;fill:currentColor;flex:none}
 .avatar{object-fit:cover}
+.intro{padding:44px 0 40px}.summary{margin:18px 0 0}.projects{padding:38px 0 80px}.projects-heading{margin-bottom:20px}.controls{margin-bottom:18px}@media(max-width:760px){.intro{padding:36px 0 32px}.projects{padding:30px 0 60px}}
