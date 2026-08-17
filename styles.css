@@ -7,4 +7,5 @@
 .card-visual img{width:100%;height:auto;display:block}
 .card-content{padding:18px;display:flex;flex:1;flex-direction:column}
 .project-card .card-content>p{color:var(--muted);font-size:13px;line-height:1.55;margin:0;max-width:520px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.skill-list{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:18px 0 0;padding:0}.skill-list li{padding:5px 9px;border:1px solid #e1e4e9;border-radius:999px;background:#f4f5f7;color:#555d68;font:500 10px/1.2 'JetBrains Mono',monospace;white-space:nowrap;transition:color .18s,border-color .18s,background .18s}.project-card:hover .skill-list li{border-color:#d5dcf5;background:#f2f5ff;color:#3d55a5}
 @media(max-width:760px){.project-card{min-height:360px}.card-content{padding:18px}}
