@@ -39,7 +39,8 @@
 - Displays current GitHub stars and orders projects by their latest repository update.
 - Supports responsive phone, tablet, and desktop layouts.
 - Includes accessible light and dark themes with saved user preference.
-- Keeps cards static and compact, ending with technology tags without a footer divider, date, or GitHub link.
+- Links project titles to their GitHub repositories and star counts to their stargazers pages, in the current tab.
+- Keeps covers static and cards compact, ending with technology tags without a footer divider, date, or GitHub button.
 
 ## Technology
 

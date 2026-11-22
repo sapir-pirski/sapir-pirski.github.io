@@ -51,7 +51,7 @@ function starCount(project, title) {
   const available = Number.isInteger(project.stargazers_count) && project.stargazers_count >= 0;
   const count = available ? numberFormatter.format(project.stargazers_count) : '—';
   const label = available ? `${title}: ${count} GitHub ${project.stargazers_count === 1 ? 'star' : 'stars'}` : `${title}: GitHub star count unavailable`;
-  return `<span class="repo-stars" role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span aria-hidden="true">${count}</span></span>`;
+  return `<a class="repo-stars" href="${escapeHtml(project.html_url)}/stargazers" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span aria-hidden="true">${count}</span></a>`;
 }
 
 function skillList(skills, extraClass = '') {
@@ -69,7 +69,7 @@ function render() {
       </div>
       <div class="card-content">
         <div class="card-meta"><span class="card-category">${escapeHtml(project.category)}</span>${starCount(project, title)}</div>
-        <h3 id="project-${project.id}">${escapeHtml(title)}</h3>
+        <h3 id="project-${project.id}"><a href="${escapeHtml(project.html_url)}">${escapeHtml(title)}</a></h3>
         <p class="card-summary">${escapeHtml(summary)}</p>
         ${skillList(skills)}
       </div>
