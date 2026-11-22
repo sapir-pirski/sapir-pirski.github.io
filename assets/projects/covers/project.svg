@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="810" viewBox="0 0 1440 810" role="img" aria-labelledby="title description">
+<title id="title">Open-source project</title><desc id="description">Code to Build to Share</desc>
+<defs><radialGradient id="ambient" cx="1" cy="0" r="1"><stop stop-color="#2dd4bf" stop-opacity=".1"/><stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/></radialGradient><linearGradient id="panel" x2="0" y2="1"><stop stop-color="#172231"/><stop offset="1" stop-color="#111927"/></linearGradient><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0v80" fill="none" stroke="#273449" stroke-opacity=".25"/></pattern></defs>
+<rect width="1440" height="810" fill="#0b1018"/><rect width="1440" height="810" fill="url(#grid)"/><rect width="1440" height="810" fill="url(#ambient)"/>
+<circle cx="1370" cy="90" r="225" fill="none" stroke="#273449" stroke-width="2" opacity=".5"/>
+<g font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="88" letter-spacing="-2.5">
+<text x="80" y="146" fill="#f1f5f9">Open-source</text>
+<text x="80" y="244" fill="#2dd4bf">Project</text>
+</g><rect x="80" y="282" width="64" height="5" rx="2.5" fill="#2dd4bf"/>
+<rect x="80" y="350" width="352" height="350" rx="28" fill="url(#panel)" stroke="#273449" stroke-width="2"/>
+<circle cx="256" cy="466" r="86" fill="#60a5fa" opacity=".07"/>
+<svg x="192" y="402" width="128" height="128" viewBox="0 0 96 96" fill="none" stroke="currentColor" color="#60a5fa" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m34 28-18 20 18 20M62 28l18 20-18 20M56 18 40 78"/></svg>
+<text x="256" y="628" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="40" fill="#f1f5f9">Code</text>
+<path d="M458 518h50m-12-12 12 12-12 12" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="544" y="350" width="352" height="350" rx="28" fill="url(#panel)" stroke="#273449" stroke-width="2"/>
+<circle cx="720" cy="466" r="86" fill="#2dd4bf" opacity=".07"/>
+<svg x="656" y="402" width="128" height="128" viewBox="0 0 96 96" fill="none" stroke="currentColor" color="#2dd4bf" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="m48 14 34 18-34 18-34-18zM14 48l34 18 34-18M14 64l34 18 34-18"/></svg>
+<text x="720" y="628" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="40" fill="#f1f5f9">Build</text>
+<path d="M922 518h50m-12-12 12 12-12 12" fill="none" stroke="#60a5fa" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="1008" y="350" width="352" height="350" rx="28" fill="url(#panel)" stroke="#273449" stroke-width="2"/>
+<circle cx="1184" cy="466" r="86" fill="#60a5fa" opacity=".07"/>
+<svg x="1120" y="402" width="128" height="128" viewBox="0 0 96 96" fill="none" stroke="currentColor" color="#60a5fa" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="48" cy="48" r="34"/><ellipse cx="48" cy="48" rx="15" ry="34"/><path d="M16 36h64M16 60h64"/></svg>
+<text x="1184" y="628" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-weight="600" font-size="40" fill="#f1f5f9">Share</text>
+</svg>

@@ -15,12 +15,11 @@
   [View portfolio](https://sapir-pirski.github.io/) · [GitHub profile](https://github.com/sapir-pirski) · [LinkedIn](https://www.linkedin.com/in/sapir-pirski)
 </div>
 
-## Preview
-
-![Portfolio desktop overview](assets/screenshots/portfolio-desktop.png)
+## Cover preview
 
 <p align="center">
-  <img src="assets/screenshots/featured-project.png" width="620" alt="Portfolio project card with image, metadata, description, and skills" />
+  <img src="assets/projects/covers/technion-genai-recruitment-assistant.svg" width="540" alt="AI Recruitment Assistant cover with job documents, candidate chat, and interviews" />
+  <img src="assets/projects/covers/bank-assistant.svg" width="540" alt="Bank Assistant cover with documents, retrieval, and cited answers" />
 </p>
 
 ## What this portfolio highlights
@@ -35,10 +34,12 @@
 - Automatically loads current public repositories through the GitHub REST API.
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
 - Provides category filtering for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
-- Preserves complete project artwork inside consistent 16:9 image stages.
+- Uses a shared 16:9 SVG cover system with a short title and three-stage project visual.
+- Keeps detailed project artwork in an accessible Details dialog with full-size image links.
+- Displays current GitHub stars, repository update dates, and independent repository links.
 - Supports responsive phone, tablet, and desktop layouts.
 - Includes accessible light and dark themes with saved user preference.
-- Makes each project card directly clickable while preserving semantic links and metadata.
+- Gives covers, Details buttons, star counts, and repository links independent keyboard-accessible actions.
 
 ## Technology
 
@@ -48,7 +49,7 @@
 | Styling | Modern CSS, responsive grid, CSS custom properties |
 | Client logic | Vanilla JavaScript |
 | Project data | GitHub REST API |
-| Typography | Inter and JetBrains Mono |
+| Typography | Locally served Geist Sans and JetBrains Mono |
 | Hosting | GitHub Pages |
 
 ## How it works
@@ -68,7 +69,7 @@ Public repository metadata
 Responsive portfolio cards
 ```
 
-The site is intentionally build-free. Repository metadata stays current, while presentation details remain curated in [`index.html`](index.html).
+The site is intentionally build-free. Repository metadata stays current, while presentation details remain curated in the JSON catalog inside [`index.html`](index.html). Card rendering and dialogs live in [`portfolio.js`](portfolio.js).
 
 ## Run locally
 
@@ -85,14 +86,28 @@ Open [http://localhost:8000](http://localhost:8000).
 ```text
 .
 ├── assets/
-│   ├── projects/       # Project-card artwork
+│   ├── projects/       # SVG covers and detailed project artwork
+│   ├── fonts/          # Variable fonts and licenses
 │   ├── screenshots/    # README previews
 │   └── github-avatar.png
 ├── favicon.svg
-├── index.html          # Content, repository mapping, and rendering
+├── index.html          # Page structure and curated project catalog
+├── portfolio.js        # Cards, GitHub metadata, filters, and Details dialog
+├── scripts/
+│   └── generate-covers.py # Rebuild the SVG cover assets
 ├── styles.css          # Layout, themes, cards, and responsive behavior
 └── README.md
 ```
+
+## Updating project covers
+
+Edit the JSON catalog in `index.html`, then regenerate the covers:
+
+```bash
+python3 scripts/generate-covers.py
+```
+
+The generator uses only the Python standard library. Existing detailed artwork stays available through each card’s Details panel.
 
 ## Deployment
 

@@ -1,45 +1,597 @@
 <!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sapir Pirski — AI Engineer</title><meta name="description" content="Projects in LLM systems, GPU infrastructure, RAG, evaluation, and machine learning by Sapir Pirski."><link rel="icon" href="favicon.svg"><link rel="preload" href="assets/fonts/geist-latin-variable.woff2" as="font" type="font/woff2" crossorigin><script>
 // Apply the saved preference before styles paint; otherwise use the dark palette.
 try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='light'?'light':'dark'}catch{}
-</script><link rel="stylesheet" href="styles.css?v=20"></head><body>
-<header class="site-header"><a class="identity" href="#top"><img class="avatar" src="assets/github-avatar.png" alt="Sapir Pirski"><span class="identity-copy"><strong>Sapir Pirski</strong><small>AI Engineer</small></span></a><nav aria-label="Main navigation"><a href="#projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg><span>Projects</span></a><a href="https://github.com/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.9-1.29 2.74-1.02 2.74-1.02.56 1.37.21 2.39.11 2.64.64.7 1.02 1.59 1.02 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><span>GitHub</span></a><a href="https://www.linkedin.com/in/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 3.5A2.3 2.3 0 1 1 5.3 8a2.3 2.3 0 0 1 0-4.5zM3.4 9.5h3.8V21H3.4zM9.4 9.5H13v1.57h.05c.5-.95 1.73-1.95 3.56-1.95 3.81 0 4.51 2.51 4.51 5.77V21h-3.78v-5.42c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.41-2.08 2.86V21H9.68z"/></svg><span>LinkedIn</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Use light theme" title="Use light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2z"/></svg></button></nav></header>
-<main id="top"><section class="intro"><h1>Building reliable AI systems,<br> from evaluation to infrastructure.</h1><p class="summary">LLM Engineering · GPU Systems · RAG · Evaluation · AI Agents</p></section>
-<section class="projects" id="projects"><div class="projects-heading"><div><h2>Projects <span id="project-count">20</span></h2></div></div><div class="controls"><div class="filters" role="group" aria-label="Filter projects"><button class="active" data-filter="All">All</button><button data-filter="LLM & Agents">LLM & Agents</button><button data-filter="GPU & Infra">GPU & Infra</button><button data-filter="RAG & Eval">RAG & Eval</button><button data-filter="ML & NLP">ML & NLP</button><button data-filter="Apps">Apps</button></div></div><div class="project-grid" id="project-grid" aria-live="polite"><p class="loading">Loading projects from GitHub…</p></div><p class="empty" id="empty" hidden>No projects match this filter.</p></section></main>
+</script><link rel="stylesheet" href="styles.css?v=21"></head><body>
+<header class="site-header"><a class="identity" href="#top"><img class="avatar" src="assets/github-avatar.png" alt="Sapir Pirski"><span class="identity-copy"><strong>Sapir Pirski</strong><small>AI Engineer</small></span></a><nav aria-label="Main navigation"><a href="#projects" aria-label="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg><span>Projects</span></a><a aria-label="GitHub" href="https://github.com/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.9-1.29 2.74-1.02 2.74-1.02.56 1.37.21 2.39.11 2.64.64.7 1.02 1.59 1.02 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><span>GitHub</span></a><a aria-label="LinkedIn" href="https://www.linkedin.com/in/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 3.5A2.3 2.3 0 1 1 5.3 8a2.3 2.3 0 0 1 0-4.5zM3.4 9.5h3.8V21H3.4zM9.4 9.5H13v1.57h.05c.5-.95 1.73-1.95 3.56-1.95 3.81 0 4.51 2.51 4.51 5.77V21h-3.78v-5.42c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.41-2.08 2.86V21H9.68z"/></svg><span>LinkedIn</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Use light theme" title="Use light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2z"/></svg></button></nav></header>
+<main id="top">
+  <section class="intro"><h1>Building reliable AI systems,<br> from evaluation to infrastructure.</h1><p class="summary">LLM Engineering · GPU Systems · RAG · Evaluation · AI Agents</p></section>
+  <section class="projects" id="projects">
+    <div class="projects-heading"><h2>Projects <span id="project-count">—</span></h2></div>
+    <div class="controls"><div class="filters" role="group" aria-label="Filter projects"><button class="active" type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="LLM &amp; Agents" aria-pressed="false">LLM &amp; Agents</button><button type="button" data-filter="GPU &amp; Infra" aria-pressed="false">GPU &amp; Infra</button><button type="button" data-filter="RAG &amp; Eval" aria-pressed="false">RAG &amp; Eval</button><button type="button" data-filter="ML &amp; NLP" aria-pressed="false">ML &amp; NLP</button><button type="button" data-filter="Apps" aria-pressed="false">Apps</button></div></div>
+    <div class="project-grid" id="project-grid" aria-live="polite"><p class="loading">Loading projects from GitHub…</p></div>
+    <p class="empty" id="empty" hidden>No projects match this filter.</p>
+  </section>
+</main>
 <footer><span>© 2026 Sapir Pirski</span><span>AI Engineer</span><a href="#top">Back to top ↑</a></footer>
-<script>
-const themeToggle=document.querySelector('#theme-toggle');const syncThemeButton=()=>{const dark=document.documentElement.dataset.theme==='dark';themeToggle.setAttribute('aria-label',dark?'Use light theme':'Use dark theme');themeToggle.setAttribute('title',dark?'Use light theme':'Use dark theme')};syncThemeButton();themeToggle.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('portfolio-theme',next)}catch{}syncThemeButton()});
-const categoryFor=r=>{if(r.name==='technion-genai-recruitment-assistant')return'LLM & Agents';const t=`${r.name} ${r.description||''}`.toLowerCase();if(/h100|gpu|cuda|ddp|distributed|quantization|vllm|nebius/.test(t))return'GPU & Infra';if(/rag|evaluation|eval|financebench|judge|benchmark/.test(t))return'RAG & Eval';if(/agent|llm|gpt|assistant|finetun|attention|repository-summarizer/.test(t))return'LLM & Agents';if(/nlp|pytorch|churn|vision|language|classification|sequence/.test(t))return'ML & NLP';return'Apps'};
-const escapeHtml=(v='')=>v.replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));let projects=[],filter='All';const grid=document.querySelector('#project-grid'),empty=document.querySelector('#empty');
-const languageColor=l=>({Python:'#3572A5','Jupyter Notebook':'#DA5B0B',TypeScript:'#3178C6',HTML:'#E34C26',JavaScript:'#F1E05A'}[l]||'#8B949E');
-const hiddenProjects=new Set(['nlp-sequence-modeling','ecommerce-llm-eval-pipeline','customer-churn-ml-analysis']);
-const projectImages={'fate':'assets/projects/fate-solana-games.png','fate-solana-games':'assets/projects/fate-solana-games.png','bank-assistant':'assets/projects/bank-assistant-dark.webp','gpt2-large-ddp-nebius':'assets/projects/gpt2-large-ddp-nebius.png','h100-fp8-quantization-benchmark':'assets/projects/h100-fp8-quantization-benchmark.png','nebius-serverless-genomic-triage':'assets/projects/nebius-serverless-genomic-triage-dark.webp','ppo-glassbox-llm':'assets/projects/ppo-glassbox-llm-dark.webp','coding-agent-eval-pipeline':'assets/projects/coding-agent-eval-pipeline.png','h100-text-to-sql-observability':'assets/projects/h100-text-to-sql-observability.png','customer-service-agent':'assets/projects/customer-service-agent.png','distributed-gpu-ddp-training':'assets/projects/distributed-gpu-ddp-training.png','from-finetuning-to-attention-inside-llms':'assets/projects/from-finetuning-to-attention-inside-llms-dark.webp','multimodal-vision-language':'assets/projects/multimodal-vision-language.png','financebench-rag-evaluation':'assets/projects/financebench-rag-evaluation-dark.webp','ai-powered-repository-summarizer-api':'assets/projects/ai-powered-repository-summarizer-api-dark.webp','pytorch-optimization-project':'assets/projects/pytorch-optimization-project.png','gpu-inference-roofline-cuda-graphs':'assets/projects/gpu-inference-roofline-cuda-graphs.png','skipper-30-quiz':'assets/projects/skipper-30-quiz.png'};
-const projectTitles={'fate':'FATE — AI-Powered Solana Gaming Platform','fate-solana-games':'FATE — AI-Powered Solana Gaming Platform','bank-assistant':'Bank Assistant: RAG Policy Chatbot','gpt2-large-ddp-nebius':'GPT-2 Large Distributed Training on Nebius H100 GPUs','h100-fp8-quantization-benchmark':'H100 LLM Quantization & FP8 Serving Benchmark','nebius-serverless-genomic-triage':'Nebius Serverless Genomic Triage','ppo-glassbox-llm':'PPO Glass-Box LLM: RLHF Training From Scratch','coding-agent-eval-pipeline':'Coding-Agent Evaluation Pipeline','h100-text-to-sql-observability':'H100 Text-to-SQL Observability Platform','customer-service-agent':'Customer Service Data Analyst Agent','distributed-gpu-ddp-training':'Distributed GPU Training Pipeline with PyTorch DDP','from-finetuning-to-attention-inside-llms':'From Fine-Tuning to Attention Inside LLMs','multimodal-vision-language':'Multimodal Vision-Language System','financebench-rag-evaluation':'FinanceBench RAG Evaluation','ai-powered-repository-summarizer-api':'AI-Powered Repository Summarizer API','pytorch-optimization-project':'PyTorch Optimization for Text Classification','gpu-inference-roofline-cuda-graphs':'GPU Inference Optimization on H100','skipper-30-quiz':'Skipper 30 — Maritime Exam Prep'};
-const projectSkills={
-'fate':['Solana','Anchor','TypeScript','Web3','Grafana'],'fate-solana-games':['Solana','Anchor','TypeScript','Web3','Grafana'],
-'skipper-30-quiz':['TypeScript','React','Maritime Navigation','Quiz UX','Responsive Design'],
-'h100-fp8-quantization-benchmark':['NVIDIA H100','vLLM','FP8','GuideLLM','LLM Serving'],
-'gpt2-large-ddp-nebius':['PyTorch','DDP','NVIDIA H100','NVLink','SkyPilot'],
-'nebius-serverless-genomic-triage':['Nebius Serverless','ClinVar','PostgreSQL','Qwen','Langfuse'],
-'ppo-glassbox-llm':['PPO','RLHF','PyTorch','GPT-2','NVIDIA H100'],
-'bank-assistant':['Python','RAG','Citations','Guardrails','Docker'],
-'coding-agent-eval-pipeline':['Airflow','MLflow','SWE-bench','mini-swe-agent','Object Storage'],
-'financebench-rag-evaluation':['FinanceBench','FAISS','pgvector','Ragas','Llama'],
-'h100-text-to-sql-observability':['Text-to-SQL','vLLM','LangGraph','Langfuse','Prometheus'],
-'gpu-inference-roofline-cuda-graphs':['PyTorch','CUDA Graphs','torch.compile','NVIDIA H100','Roofline Analysis'],
-'multimodal-vision-language':['BLIP','CLIP','VQA','Image Captioning','PyTorch'],
-'distributed-gpu-ddp-training':['PyTorch DDP','Kubernetes','NCCL','Docker','SkyPilot'],
-'customer-service-agent':['LangGraph','FastMCP','Streamlit','Persistent Memory','Nebius'],
-'pytorch-optimization-project':['PyTorch','SST-2','Logistic Regression','SGD','L1 Regularization'],
-'ai-powered-repository-summarizer-api':['FastAPI','GitHub API','LLM','Python','JSON'],
-'from-finetuning-to-attention-inside-llms':['QLoRA','Transformers','PyTorch','Attention','Google Colab']};
-projectImages['sea-gal-tavily-intelligence']='assets/projects/tavily-maritime-market-intelligence.png';
-projectTitles['sea-gal-tavily-intelligence']='Tavily-Powered Maritime Market Intelligence';
-projectSkills['sea-gal-tavily-intelligence']=['Tavily API','Market Intelligence','Competitor Research','Evidence Pipelines','Human-in-the-Loop AI'];
-projectImages['technion-genai-recruitment-assistant']='assets/projects/ai-recruitment-assistant-dark.webp';
-projectTitles['technion-genai-recruitment-assistant']='AI Recruitment Assistant';
-projectSkills['technion-genai-recruitment-assistant']=['LangGraph','OpenAI','RAG','pgvector','Streamlit'];
-const projectDescriptions={'technion-genai-recruitment-assistant':'A multi-agent recruitment assistant for grounded job Q&A and interview scheduling, with PDF retrieval, a fine-tuned exit classifier, and persistent PostgreSQL workflows.','sea-gal-tavily-intelligence':'An evidence-first research system powered by Tavily for Israeli skipper licensing, competitor monitoring, yacht-market research, and content opportunities—with source tracking, deterministic scoring, and human approval gates.'};
-function render(){const visible=projects.filter(p=>filter==='All'||p.category===filter);grid.innerHTML=visible.map(p=>{const image=projectImages[p.name]||'',title=projectTitles[p.name]||p.name,description=projectDescriptions[p.name]||p.description,skills=projectSkills[p.name]||[];return`<article class="project-card">${image?`<a class="card-visual has-image${p.name==='technion-genai-recruitment-assistant'?' recruitment-visual':''}${p.name==='bank-assistant'?' bank-visual':''}" style="--card-image:url('${image}')" href="${p.html_url}" target="_blank" rel="noreferrer" aria-label="View ${escapeHtml(title)} repository"><img src="${image}" alt="${escapeHtml(title)} project preview" width="1440" height="810" loading="lazy"></a>`:''}<div class="card-content"><div class="card-meta"><span class="language"><i style="--lang:${languageColor(p.language)}"></i>${escapeHtml(p.language||'Repository')}</span><span>${escapeHtml(p.category)}</span></div><h3><a href="${p.html_url}" target="_blank" rel="noreferrer">${escapeHtml(title)} <span>↗</span></a></h3><p>${escapeHtml(description||'Public GitHub project by Sapir Pirski.')}</p>${skills.length?`<ul class="skill-list" aria-label="Project skills">${skills.map(skill=>`<li>${escapeHtml(skill)}</li>`).join('')}</ul>`:''}</div></article>`}).join('');empty.hidden=visible.length>0;document.querySelector('#project-count').textContent=projects.length}
-document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{document.querySelector('.filters .active').classList.remove('active');b.classList.add('active');filter=b.dataset.filter;render()}));
-fetch('https://api.github.com/users/sapir-pirski/repos?per_page=100&sort=updated&direction=desc').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{projects=data.filter(p=>!p.fork&&!p.archived&&p.name!=='sapir-pirski.github.io'&&!hiddenProjects.has(p.name)).map(p=>({...p,category:categoryFor(p)})).sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));render()}).catch(()=>{grid.innerHTML='<p class="loading">Projects are temporarily unavailable. <a href="https://github.com/sapir-pirski">View them on GitHub ↗</a></p>'});
-</script></body></html>
+<dialog class="project-dialog" id="project-details" aria-labelledby="detail-title" aria-describedby="detail-summary">
+  <div class="dialog-shell">
+    <button class="dialog-close" id="details-close" type="button" aria-label="Close project details" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+    <div id="details-content"></div>
+  </div>
+</dialog>
+<script id="project-catalog" type="application/json">
+{
+  "technion-genai-recruitment-assistant": {
+    "title": "AI Recruitment Assistant",
+    "summary": "Answers job questions from PDFs, chats with candidates, and coordinates interviews through persistent multi-agent workflows.",
+    "skills": [
+      "LangGraph",
+      "OpenAI",
+      "RAG",
+      "pgvector",
+      "Streamlit"
+    ],
+    "detailImage": "assets/projects/ai-recruitment-assistant-dark.webp",
+    "coverTitle": [
+      "AI Recruitment",
+      "Assistant"
+    ],
+    "stages": [
+      {
+        "icon": "document",
+        "label": "Job documents"
+      },
+      {
+        "icon": "chat",
+        "label": "Candidate chat"
+      },
+      {
+        "icon": "calendar",
+        "label": "Interviews"
+      }
+    ]
+  },
+  "skipper-30-quiz": {
+    "title": "Skipper 30 — Maritime Exam Prep",
+    "summary": "Prepares skippers for maritime exams with practice questions on navigation, engines, and seamanship.",
+    "skills": [
+      "TypeScript",
+      "React",
+      "Maritime Navigation",
+      "Quiz UX",
+      "Responsive Design"
+    ],
+    "detailImage": "assets/projects/skipper-30-quiz.png",
+    "coverTitle": [
+      "Skipper 30",
+      "Exam Prep"
+    ],
+    "stages": [
+      {
+        "icon": "compass",
+        "label": "Navigation"
+      },
+      {
+        "icon": "question",
+        "label": "Practice"
+      },
+      {
+        "icon": "check",
+        "label": "Exam prep"
+      }
+    ]
+  },
+  "fate-solana-games": {
+    "title": "FATE — AI-Powered Solana Gaming Platform",
+    "summary": "Combines Solana devnet games, an AI copilot, wallet authentication, and observability in a full-stack platform.",
+    "skills": [
+      "Solana",
+      "Anchor",
+      "TypeScript",
+      "Web3",
+      "Grafana"
+    ],
+    "detailImage": "assets/projects/fate-solana-games.png",
+    "coverTitle": [
+      "FATE",
+      "Solana Gaming"
+    ],
+    "stages": [
+      {
+        "icon": "game",
+        "label": "Games"
+      },
+      {
+        "icon": "neural",
+        "label": "AI copilot"
+      },
+      {
+        "icon": "chain",
+        "label": "On-chain"
+      }
+    ]
+  },
+  "sea-gal-tavily-intelligence": {
+    "title": "Tavily-Powered Maritime Market Intelligence",
+    "summary": "Researches skipper licensing, competitors, and yacht markets using Tavily, tracked sources, and human review.",
+    "skills": [
+      "Tavily API",
+      "Market Intelligence",
+      "Competitor Research",
+      "Evidence Pipelines",
+      "Human-in-the-Loop AI"
+    ],
+    "detailImage": "assets/projects/tavily-maritime-market-intelligence.png",
+    "coverTitle": [
+      "Maritime Market",
+      "Intelligence"
+    ],
+    "stages": [
+      {
+        "icon": "globe",
+        "label": "Web sources"
+      },
+      {
+        "icon": "search",
+        "label": "Research"
+      },
+      {
+        "icon": "report",
+        "label": "Intelligence"
+      }
+    ]
+  },
+  "h100-fp8-quantization-benchmark": {
+    "title": "H100 LLM Quantization & FP8 Serving Benchmark",
+    "summary": "Compares BF16 and FP8 serving on an NVIDIA H100 using reproducible vLLM and GuideLLM benchmarks.",
+    "skills": [
+      "NVIDIA H100",
+      "vLLM",
+      "FP8",
+      "GuideLLM",
+      "LLM Serving"
+    ],
+    "detailImage": "assets/projects/h100-fp8-quantization-benchmark.png",
+    "coverTitle": [
+      "LLM Serving",
+      "FP8 Benchmark"
+    ],
+    "stages": [
+      {
+        "icon": "gpu",
+        "label": "BF16 / FP8"
+      },
+      {
+        "icon": "bolt",
+        "label": "Serving"
+      },
+      {
+        "icon": "chart",
+        "label": "Benchmarks"
+      }
+    ]
+  },
+  "gpt2-large-ddp-nebius": {
+    "title": "GPT-2 Large Distributed Training on Nebius H100 GPUs",
+    "summary": "Benchmarks GPT-2 Large training across single-GPU, multi-node TCP, and single-node NVLink configurations.",
+    "skills": [
+      "PyTorch",
+      "DDP",
+      "NVIDIA H100",
+      "NVLink",
+      "SkyPilot"
+    ],
+    "detailImage": "assets/projects/gpt2-large-ddp-nebius.png",
+    "coverTitle": [
+      "GPT-2 Large",
+      "Distributed Training"
+    ],
+    "stages": [
+      {
+        "icon": "neural",
+        "label": "GPT-2"
+      },
+      {
+        "icon": "cluster",
+        "label": "Multi-GPU"
+      },
+      {
+        "icon": "chart",
+        "label": "Scaling"
+      }
+    ]
+  },
+  "nebius-serverless-genomic-triage": {
+    "title": "Nebius Serverless Genomic Triage",
+    "summary": "Triages genomic variants with ClinVar evidence, PostgreSQL search, guarded Qwen explanations, and observability.",
+    "skills": [
+      "Nebius Serverless",
+      "ClinVar",
+      "PostgreSQL",
+      "Qwen",
+      "Langfuse"
+    ],
+    "detailImage": "assets/projects/nebius-serverless-genomic-triage-dark.webp",
+    "coverTitle": [
+      "Genomic Variant",
+      "Triage"
+    ],
+    "stages": [
+      {
+        "icon": "dna",
+        "label": "Variants"
+      },
+      {
+        "icon": "database",
+        "label": "Evidence"
+      },
+      {
+        "icon": "shield",
+        "label": "Triage"
+      }
+    ]
+  },
+  "ppo-glassbox-llm": {
+    "title": "PPO Glass-Box LLM: RLHF Training From Scratch",
+    "summary": "Trains GPT-2 with transparent PPO components, exposing reward, KL control, value clipping, and multi-seed experiments.",
+    "skills": [
+      "PPO",
+      "RLHF",
+      "PyTorch",
+      "GPT-2",
+      "NVIDIA H100"
+    ],
+    "detailImage": "assets/projects/ppo-glassbox-llm-dark.webp",
+    "coverTitle": [
+      "PPO & RLHF",
+      "Training Lab"
+    ],
+    "stages": [
+      {
+        "icon": "chat",
+        "label": "Rollouts"
+      },
+      {
+        "icon": "neural",
+        "label": "PPO updates"
+      },
+      {
+        "icon": "chart",
+        "label": "Training traces"
+      }
+    ]
+  },
+  "bank-assistant": {
+    "title": "Bank Assistant: RAG Policy Chatbot",
+    "summary": "Answers card and securities policy questions with retrieved evidence, source citations, routing, and guardrails.",
+    "skills": [
+      "Python",
+      "RAG",
+      "Citations",
+      "Guardrails",
+      "Docker"
+    ],
+    "detailImage": "assets/projects/bank-assistant-dark.webp",
+    "coverTitle": [
+      "Bank Assistant",
+      "Policy RAG"
+    ],
+    "stages": [
+      {
+        "icon": "document",
+        "label": "Documents"
+      },
+      {
+        "icon": "search",
+        "label": "Retrieval"
+      },
+      {
+        "icon": "citations",
+        "label": "Cited answers"
+      }
+    ]
+  },
+  "coding-agent-eval-pipeline": {
+    "title": "Coding-Agent Evaluation Pipeline",
+    "summary": "Runs coding agents against SWE-bench, tracks experiments with MLflow, and preserves reproducible evaluation artifacts.",
+    "skills": [
+      "Airflow",
+      "MLflow",
+      "SWE-bench",
+      "mini-swe-agent",
+      "Object Storage"
+    ],
+    "detailImage": "assets/projects/coding-agent-eval-pipeline.png",
+    "coverTitle": [
+      "Coding Agent",
+      "Evaluation"
+    ],
+    "stages": [
+      {
+        "icon": "code",
+        "label": "Agent runs"
+      },
+      {
+        "icon": "target",
+        "label": "SWE-bench"
+      },
+      {
+        "icon": "report",
+        "label": "Eval artifacts"
+      }
+    ]
+  },
+  "financebench-rag-evaluation": {
+    "title": "FinanceBench RAG Evaluation",
+    "summary": "Evaluates financial-document RAG with FAISS and pgvector retrieval, LLM judging, and faithfulness checks.",
+    "skills": [
+      "FinanceBench",
+      "FAISS",
+      "pgvector",
+      "Ragas",
+      "Llama"
+    ],
+    "detailImage": "assets/projects/financebench-rag-evaluation-dark.webp",
+    "coverTitle": [
+      "FinanceBench",
+      "RAG Evaluation"
+    ],
+    "stages": [
+      {
+        "icon": "document",
+        "label": "10-K reports"
+      },
+      {
+        "icon": "database",
+        "label": "RAG retrieval"
+      },
+      {
+        "icon": "target",
+        "label": "Evaluation"
+      }
+    ]
+  },
+  "h100-text-to-sql-observability": {
+    "title": "H100 Text-to-SQL Observability Platform",
+    "summary": "Combines LLM serving and LangGraph for Text-to-SQL, with BIRD evaluations, tracing, and load testing on one H100.",
+    "skills": [
+      "Text-to-SQL",
+      "vLLM",
+      "LangGraph",
+      "Langfuse",
+      "Prometheus"
+    ],
+    "detailImage": "assets/projects/h100-text-to-sql-observability.png",
+    "coverTitle": [
+      "Text-to-SQL",
+      "Observability"
+    ],
+    "stages": [
+      {
+        "icon": "chat",
+        "label": "Questions"
+      },
+      {
+        "icon": "code",
+        "label": "SQL"
+      },
+      {
+        "icon": "chart",
+        "label": "Observability"
+      }
+    ]
+  },
+  "gpu-inference-roofline-cuda-graphs": {
+    "title": "GPU Inference Optimization on H100",
+    "summary": "Studies H100 inference with roofline analysis, torch.compile, decode optimization, and CUDA Graphs.",
+    "skills": [
+      "PyTorch",
+      "CUDA Graphs",
+      "torch.compile",
+      "NVIDIA H100",
+      "Roofline Analysis"
+    ],
+    "detailImage": "assets/projects/gpu-inference-roofline-cuda-graphs.png",
+    "coverTitle": [
+      "GPU Inference",
+      "Optimization"
+    ],
+    "stages": [
+      {
+        "icon": "gpu",
+        "label": "H100"
+      },
+      {
+        "icon": "bolt",
+        "label": "CUDA Graphs"
+      },
+      {
+        "icon": "chart",
+        "label": "Performance"
+      }
+    ]
+  },
+  "multimodal-vision-language": {
+    "title": "Multimodal Vision-Language System",
+    "summary": "Generates image captions and answers visual questions with BLIP, alongside CLIP-based recognition experiments.",
+    "skills": [
+      "BLIP",
+      "CLIP",
+      "VQA",
+      "Image Captioning",
+      "PyTorch"
+    ],
+    "detailImage": "assets/projects/multimodal-vision-language.png",
+    "coverTitle": [
+      "Multimodal",
+      "Vision + Language"
+    ],
+    "stages": [
+      {
+        "icon": "image",
+        "label": "Images"
+      },
+      {
+        "icon": "neural",
+        "label": "BLIP / CLIP"
+      },
+      {
+        "icon": "chat",
+        "label": "Captions + Q&A"
+      }
+    ]
+  },
+  "distributed-gpu-ddp-training": {
+    "title": "Distributed GPU Training Pipeline with PyTorch DDP",
+    "summary": "Runs multi-node PyTorch training on Kubernetes with NCCL communication, containerized workers, and SkyPilot orchestration.",
+    "skills": [
+      "PyTorch DDP",
+      "Kubernetes",
+      "NCCL",
+      "Docker",
+      "SkyPilot"
+    ],
+    "detailImage": "assets/projects/distributed-gpu-ddp-training.png",
+    "coverTitle": [
+      "PyTorch DDP",
+      "Training Pipeline"
+    ],
+    "stages": [
+      {
+        "icon": "database",
+        "label": "Dataset"
+      },
+      {
+        "icon": "cluster",
+        "label": "DDP workers"
+      },
+      {
+        "icon": "neural",
+        "label": "Trained model"
+      }
+    ]
+  },
+  "customer-service-agent": {
+    "title": "Customer Service Data Analyst Agent",
+    "summary": "Analyzes customer-service data through a LangGraph agent with tools, persistent memory, and a Streamlit interface.",
+    "skills": [
+      "LangGraph",
+      "FastMCP",
+      "Streamlit",
+      "Persistent Memory",
+      "Nebius"
+    ],
+    "detailImage": "assets/projects/customer-service-agent.png",
+    "coverTitle": [
+      "Customer Service",
+      "Analyst Agent"
+    ],
+    "stages": [
+      {
+        "icon": "database",
+        "label": "Support data"
+      },
+      {
+        "icon": "neural",
+        "label": "Agent"
+      },
+      {
+        "icon": "chart",
+        "label": "Analysis"
+      }
+    ]
+  },
+  "pytorch-optimization-project": {
+    "title": "PyTorch Optimization for Text Classification",
+    "summary": "Compares optimization choices for SST-2 classification using PyTorch, logistic regression, SGD, and L1 regularization.",
+    "skills": [
+      "PyTorch",
+      "SST-2",
+      "Logistic Regression",
+      "SGD",
+      "L1 Regularization"
+    ],
+    "detailImage": "assets/projects/pytorch-optimization-project.png",
+    "coverTitle": [
+      "PyTorch",
+      "Text Classification"
+    ],
+    "stages": [
+      {
+        "icon": "document",
+        "label": "SST-2"
+      },
+      {
+        "icon": "neural",
+        "label": "Training"
+      },
+      {
+        "icon": "chart",
+        "label": "Comparison"
+      }
+    ]
+  },
+  "ai-powered-repository-summarizer-api": {
+    "title": "AI-Powered Repository Summarizer API",
+    "summary": "Turns a public GitHub repository into a structured JSON summary through a FastAPI service and an LLM.",
+    "skills": [
+      "FastAPI",
+      "GitHub API",
+      "LLM",
+      "Python",
+      "JSON"
+    ],
+    "detailImage": "assets/projects/ai-powered-repository-summarizer-api-dark.webp",
+    "coverTitle": [
+      "Repository",
+      "Summarizer API"
+    ],
+    "stages": [
+      {
+        "icon": "code",
+        "label": "Repository"
+      },
+      {
+        "icon": "neural",
+        "label": "LLM"
+      },
+      {
+        "icon": "braces",
+        "label": "JSON summary"
+      }
+    ]
+  },
+  "from-finetuning-to-attention-inside-llms": {
+    "title": "From Fine-Tuning to Attention Inside LLMs",
+    "summary": "Explores QLoRA fine-tuning and transformer attention through reproducible notebooks and GPU experiments.",
+    "skills": [
+      "QLoRA",
+      "Transformers",
+      "PyTorch",
+      "Attention",
+      "Google Colab"
+    ],
+    "detailImage": "assets/projects/from-finetuning-to-attention-inside-llms-dark.webp",
+    "coverTitle": [
+      "Fine-Tuning",
+      "& Attention"
+    ],
+    "stages": [
+      {
+        "icon": "layers",
+        "label": "QLoRA"
+      },
+      {
+        "icon": "neural",
+        "label": "LLM"
+      },
+      {
+        "icon": "attention",
+        "label": "Attention"
+      }
+    ]
+  }
+}
+</script>
+<script src="portfolio.js?v=1" defer></script>
+</body></html>
