@@ -2,7 +2,6 @@ const projectCatalog = JSON.parse(document.querySelector('#project-catalog').tex
 const grid = document.querySelector('#project-grid');
 const empty = document.querySelector('#empty');
 const themeToggle = document.querySelector('#theme-toggle');
-const dateFormatter = new Intl.DateTimeFormat('en-US', {month:'short', day:'numeric', year:'numeric', timeZone:'UTC'});
 const numberFormatter = new Intl.NumberFormat('en-US');
 const hiddenProjects = new Set(['nlp-sequence-modeling','ecommerce-llm-eval-pipeline','customer-churn-ml-analysis']);
 const starIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.3.9-4.5 4.4 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.5-4.4 6.3-.9z"/></svg>';
@@ -55,12 +54,6 @@ function starCount(project, title) {
   return `<span class="repo-stars" role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span aria-hidden="true">${count}</span></span>`;
 }
 
-function updatedDate(project) {
-  const date = new Date(project.updated_at || '');
-  if (Number.isNaN(date.valueOf())) return '<span class="card-updated">Update date unavailable</span>';
-  return `<span class="card-updated">Updated <time datetime="${date.toISOString()}" title="${escapeHtml(date.toUTCString())}">${dateFormatter.format(date)}</time></span>`;
-}
-
 function skillList(skills, extraClass = '') {
   return skills.length ? `<ul class="skill-list ${extraClass}" aria-label="Technologies">${skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join('')}</ul>` : '';
 }
@@ -79,7 +72,6 @@ function render() {
         <h3 id="project-${project.id}">${escapeHtml(title)}</h3>
         <p class="card-summary">${escapeHtml(summary)}</p>
         ${skillList(skills)}
-        <div class="card-footer">${updatedDate(project)}<div class="card-actions"><a href="${escapeHtml(project.html_url)}" aria-label="View ${escapeHtml(title)} on GitHub">GitHub</a></div></div>
       </div>
     </article>`;
   }).join('');

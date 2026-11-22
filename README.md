@@ -36,10 +36,10 @@
 - Provides category filtering for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
 - Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
 - Gives every curated project its own text-free 3D illustration and a crisp two-line white/teal HTML title.
-- Displays current GitHub stars, repository update dates, and one GitHub link per card.
+- Displays current GitHub stars and orders projects by their latest repository update.
 - Supports responsive phone, tablet, and desktop layouts.
 - Includes accessible light and dark themes with saved user preference.
-- Keeps covers static; each card's GitHub link opens in the current tab without a Details popup.
+- Keeps cards static and compact, ending with technology tags without a footer divider, date, or GitHub link.
 
 ## Technology
 

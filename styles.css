@@ -95,12 +95,6 @@ main,footer{width:min(1180px,calc(100% - 48px));margin:auto}
 .card-content>.skill-list{margin-top:auto;padding-top:2px}
 .skill-list li{border:0;border-radius:999px;background:var(--raised);color:var(--muted);padding:5px 9px;font:500 .75rem/1.4 var(--font-sans);white-space:normal;overflow-wrap:anywhere;max-width:100%}
 .project-card:hover .skill-list li{background:var(--soft);color:var(--ink)}
-.card-footer{margin-top:4px;padding-top:12px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}
-.card-updated{font:400 .75rem/1.6 var(--font-mono);font-variant-numeric:tabular-nums;color:var(--muted)}
-.card-updated time{white-space:nowrap}
-.card-actions{display:flex;align-items:center;gap:16px}
-.card-actions a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font:500 .875rem/1.5 var(--font-sans)}
-.card-actions a:hover{text-decoration:underline;text-underline-offset:4px}
 .loading,.empty{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--muted)}
 .loading a{color:var(--link)}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;display:flex;justify-content:space-between;color:var(--muted);font-size:.75rem}
