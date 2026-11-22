@@ -35,6 +35,7 @@
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
 - Searches project titles, descriptions, and technology stacks, combined with category filtering.
 - Shows category counts for the current search, an overall filtered result count, and clear/reset controls.
+- Offers Grid and Compact views with a saved visitor preference; first-time visitors see the illustrated grid.
 - Curates categories by project purpose for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
 - Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
 - Gives every curated project its own text-free 3D illustration and a crisp two-line white/teal HTML title.
@@ -76,6 +77,8 @@ Responsive portfolio cards
 The site is intentionally build-free. Repository metadata stays current, while presentation details remain curated in the JSON catalog inside [`index.html`](index.html). Card rendering lives in [`portfolio.js`](portfolio.js).
 
 Each catalog entry has an explicit `category`; this overrides the fallback rules for uncatalogued repositories. Search matches every entered word across the displayed title, summary, and stack. Category badges count all search matches before the category filter is applied, while the result count always compares visible cards with the full project collection. Last updated, newest first remains the display order for every search and category.
+
+The Grid / Compact toggle changes the layout of the same cards without resetting search, categories, or ordering. Compact rows show a thumbnail, linked title, category, linked stars, readable summary, and technology stack. The chosen view is saved locally as `portfolio-view`; switching continues to work when browser storage is unavailable.
 
 ## Run locally
 

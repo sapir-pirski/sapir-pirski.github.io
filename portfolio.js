@@ -7,12 +7,32 @@ const clearSearchButton = document.querySelector('#clear-search');
 const resetButton = document.querySelector('#reset-projects');
 const resultCount = document.querySelector('#project-results');
 const filterButtons = Array.from(document.querySelectorAll('.filters button'));
+const viewButtons = Array.from(document.querySelectorAll('.view-toggle button'));
 const numberFormatter = new Intl.NumberFormat('en-US');
 const hiddenProjects = new Set(['nlp-sequence-modeling','ecommerce-llm-eval-pipeline','customer-churn-ml-analysis']);
 const starIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.3.9-4.5 4.4 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.5-4.4 6.3-.9z"/></svg>';
 let projects = [];
 let filter = 'All';
 let projectsLoaded = false;
+let projectView = 'grid';
+try {
+  if (localStorage.getItem('portfolio-view') === 'compact') projectView = 'compact';
+} catch {}
+
+function syncProjectView() {
+  grid.dataset.view = projectView;
+  viewButtons.forEach(button => {
+    button.setAttribute('aria-pressed', String(button.dataset.view === projectView));
+  });
+}
+syncProjectView();
+viewButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    projectView = button.dataset.view === 'compact' ? 'compact' : 'grid';
+    syncProjectView();
+    try { localStorage.setItem('portfolio-view', projectView); } catch {}
+  });
+});
 
 function escapeHtml(value = '') {
   return String(value ?? '').replace(/[&<>'"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));

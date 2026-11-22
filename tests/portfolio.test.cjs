@@ -41,7 +41,7 @@ const repositories = [
   repository(11, 'nlp-sequence-modeling', '2026-11-22T11:00:00Z'),
 ];
 
-async function load(data = repositories, ok = true) {
+async function load(data = repositories, ok = true, options = {}) {
   const selectors = ['#project-grid', '#empty', '#theme-toggle', '#project-search', '#clear-search', '#reset-projects', '#project-results', '#project-count'];
   const elements = Object.fromEntries(selectors.map(selector => [selector, element()]));
   elements['#project-catalog'] = {textContent:JSON.stringify(catalog)};
@@ -57,6 +57,13 @@ async function load(data = repositories, ok = true) {
     };
     return button;
   });
+  const viewButtons = ['grid', 'compact'].map(view => {
+    const button = element();
+    button.dataset.view = view;
+    return button;
+  });
+  const storage = options.storage || new Map();
+  let requestCount = 0;
   const context = vm.createContext({
     document:{
       documentElement:{dataset:{theme:'dark'}},
@@ -65,19 +72,28 @@ async function load(data = repositories, ok = true) {
         return elements[selector];
       },
       querySelectorAll(selector) {
-        assert.equal(selector, '.filters button');
-        return buttons;
+        if (selector === '.filters button') return buttons;
+        assert.equal(selector, '.view-toggle button');
+        return viewButtons;
       },
     },
     Intl,
-    localStorage:{setItem() {}},
-    fetch:async () => ({ok, json:async () => data}),
+    localStorage:options.blockStorage ? {
+      getItem() { throw new Error('Storage blocked'); },
+      setItem() { throw new Error('Storage blocked'); },
+    } : {
+      getItem:key => storage.get(key) ?? null,
+      setItem:(key, value) => storage.set(key, value),
+    },
+    fetch:async () => { requestCount++; return {ok, json:async () => data}; },
   });
   vm.runInContext(source, context);
   await new Promise(setImmediate);
   const grid = elements['#project-grid'];
   return {
-    elements, buttons, context, grid,
+    elements, buttons, viewButtons, context, grid, storage,
+    requests:() => requestCount,
+    selectView(view) { viewButtons.find(button => button.dataset.view === view).emit('click'); },
     ids:() => [...grid.innerHTML.matchAll(/aria-labelledby="project-(\d+)"/g)].map(match => Number(match[1])),
     search(value) {
       elements['#project-search'].value = value;
@@ -93,6 +109,53 @@ test('default collection excludes hidden repositories and stays newest first', a
   assert.deepEqual(app.ids(), [1, 3, 12, 7, 5, 4, 2, 6]);
   assert.equal(app.elements['#project-results'].textContent, '8 of 8 projects');
   assert.deepEqual(app.counts(), {'All':'8', 'LLM & Agents':'2', 'GPU & Infra':'1', 'RAG & Eval':'2', 'ML & NLP':'1', 'Apps':'2'});
+});
+
+test('view switching preserves search, category, counts, order and independent links', async () => {
+  const app = await load();
+  assert.equal(app.grid.dataset.view, 'grid');
+  assert.equal(app.viewButtons[0].attributes['aria-pressed'], 'true');
+  app.select('LLM & Agents');
+  app.search('LangGraph');
+  const markup = app.grid.innerHTML;
+  const counts = app.counts();
+  app.selectView('compact');
+  assert.equal(app.grid.dataset.view, 'compact');
+  assert.equal(app.viewButtons[1].attributes['aria-pressed'], 'true');
+  assert.equal(app.viewButtons[0].attributes['aria-pressed'], 'false');
+  assert.equal(app.grid.innerHTML, markup);
+  assert.deepEqual(app.ids(), [1, 2]);
+  assert.deepEqual(app.counts(), counts);
+  assert.equal(app.elements['#project-results'].textContent, '2 of 8 projects');
+  assert.equal(app.requests(), 1);
+  app.elements['#reset-projects'].emit('click');
+  assert.equal(app.grid.dataset.view, 'compact');
+  assert.deepEqual(app.ids(), [1, 3, 12, 7, 5, 4, 2, 6]);
+  app.selectView('grid');
+  assert.equal(app.grid.dataset.view, 'grid');
+  assert.equal(app.storage.get('portfolio-view'), 'grid');
+});
+
+test('view preference persists across page loads, with grid as the default', async () => {
+  const storage = new Map();
+  const first = await load(repositories, true, {storage});
+  first.selectView('compact');
+  assert.equal(storage.get('portfolio-view'), 'compact');
+  const returning = await load(repositories, true, {storage});
+  assert.equal(returning.grid.dataset.view, 'compact');
+  assert.equal(returning.viewButtons[1].attributes['aria-pressed'], 'true');
+  const invalid = await load(repositories, true, {storage:new Map([['portfolio-view', 'unknown']])});
+  assert.equal(invalid.grid.dataset.view, 'grid');
+});
+
+test('blocked storage does not prevent view switching or searching', async () => {
+  const app = await load(repositories, true, {blockStorage:true});
+  assert.equal(app.grid.dataset.view, 'grid');
+  app.selectView('compact');
+  assert.equal(app.grid.dataset.view, 'compact');
+  app.search('React');
+  assert.deepEqual(app.ids(), [3]);
+  assert.equal(app.elements['#project-results'].textContent, '1 of 8 projects');
 });
 
 test('search spans displayed titles, descriptions and stack, ignoring case and extra whitespace', async () => {
