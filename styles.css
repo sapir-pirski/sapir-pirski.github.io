@@ -21,3 +21,6 @@
 
 /* The recruitment cover is composed for the full 16:9 image stage. */
 .recruitment-visual{background:#080f1f}.recruitment-visual::before,.recruitment-visual::after{display:none}.recruitment-visual img{object-fit:cover}
+
+/* The Bank Assistant cover fills its 16:9 stage without blurred bands. */
+.bank-visual{background:#080f1f}.bank-visual::before,.bank-visual::after{display:none}.bank-visual img{object-fit:cover}
