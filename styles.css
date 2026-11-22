@@ -20,4 +20,4 @@
 .project-grid{align-items:start}.card-visual{width:100%;min-width:0}.card-visual img{position:absolute;inset:0;width:100%;height:100%}
 
 /* The recruitment cover is composed for the full 16:9 image stage. */
-.recruitment-visual{background:#edf4ff}.recruitment-visual::before,.recruitment-visual::after{display:none}.recruitment-visual img{object-fit:cover}
+.recruitment-visual{background:#080f1f}.recruitment-visual::before,.recruitment-visual::after{display:none}.recruitment-visual img{object-fit:cover}
