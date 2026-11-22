@@ -33,10 +33,13 @@
 
 - Automatically loads current public repositories through the GitHub REST API.
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
-- Provides category filtering for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
+- Searches project titles, descriptions, and technology stacks, combined with category filtering.
+- Shows category counts for the current search, an overall filtered result count, and clear/reset controls.
+- Curates categories by project purpose for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
 - Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
 - Gives every curated project its own text-free 3D illustration and a crisp two-line white/teal HTML title.
 - Displays current GitHub stars and orders projects by their latest repository update.
+- Separates the GitHub-reported repository language from the curated project technology stack.
 - Supports responsive phone, tablet, and desktop layouts.
 - Includes accessible light and dark themes with saved user preference.
 - Links project titles to their GitHub repositories and star counts to their stargazers pages, in the current tab.
@@ -72,6 +75,8 @@ Responsive portfolio cards
 
 The site is intentionally build-free. Repository metadata stays current, while presentation details remain curated in the JSON catalog inside [`index.html`](index.html). Card rendering lives in [`portfolio.js`](portfolio.js).
 
+Each catalog entry has an explicit `category`; this overrides the fallback rules for uncatalogued repositories. Search matches every entered word across the displayed title, summary, and stack. Category badges count all search matches before the category filter is applied, while the result count always compares visible cards with the full project collection. Last updated, newest first remains the display order for every search and category.
+
 ## Run locally
 
 ```bash
@@ -81,6 +86,12 @@ python3 -m http.server 8000
 ```
 
 Open [http://localhost:8000](http://localhost:8000).
+
+Run the browsing and navigation checks with Node's built-in test runner (no dependencies required):
+
+```bash
+node --test tests/portfolio.test.cjs
+```
 
 ## Project structure
 
@@ -97,6 +108,7 @@ Open [http://localhost:8000](http://localhost:8000).
 ├── scripts/
 │   └── generate-covers.py # Legacy SVG cover generator
 ├── styles.css          # Layout, themes, cards, and responsive behavior
+├── tests/portfolio.test.cjs # Search, category, metadata, and navigation checks
 └── README.md
 ```
 

@@ -2,11 +2,17 @@ const projectCatalog = JSON.parse(document.querySelector('#project-catalog').tex
 const grid = document.querySelector('#project-grid');
 const empty = document.querySelector('#empty');
 const themeToggle = document.querySelector('#theme-toggle');
+const searchInput = document.querySelector('#project-search');
+const clearSearchButton = document.querySelector('#clear-search');
+const resetButton = document.querySelector('#reset-projects');
+const resultCount = document.querySelector('#project-results');
+const filterButtons = Array.from(document.querySelectorAll('.filters button'));
 const numberFormatter = new Intl.NumberFormat('en-US');
 const hiddenProjects = new Set(['nlp-sequence-modeling','ecommerce-llm-eval-pipeline','customer-churn-ml-analysis']);
 const starIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.8 5.7 6.3.9-4.5 4.4 1.1 6.3-5.7-3-5.7 3 1.1-6.3-4.5-4.4 6.3-.9z"/></svg>';
 let projects = [];
 let filter = 'All';
+let projectsLoaded = false;
 
 function escapeHtml(value = '') {
   return String(value ?? '').replace(/[&<>'"]/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[character]));
@@ -26,18 +32,24 @@ themeToggle.addEventListener('click', () => {
 });
 
 function categoryFor(repository) {
-  if (repository.name === 'technion-genai-recruitment-assistant') return 'LLM & Agents';
+  const curatedCategory = catalogEntry(repository)?.category;
+  if (curatedCategory) return curatedCategory;
   const text = `${repository.name} ${repository.description || ''}`.toLowerCase();
-  if (/h100|gpu|cuda|ddp|distributed|quantization|vllm|nebius/.test(text)) return 'GPU & Infra';
   if (/rag|evaluation|eval|financebench|judge|benchmark/.test(text)) return 'RAG & Eval';
-  if (/agent|llm|gpt|assistant|finetun|attention|repository-summarizer/.test(text)) return 'LLM & Agents';
+  if (/agent|assistant|copilot/.test(text)) return 'LLM & Agents';
+  if (/h100|gpu|cuda|ddp|distributed|quantization|vllm/.test(text)) return 'GPU & Infra';
+  if (/llm|gpt|finetun|attention|repository-summarizer/.test(text)) return 'LLM & Agents';
   if (/nlp|pytorch|churn|vision|language|classification|sequence/.test(text)) return 'ML & NLP';
   return 'Apps';
 }
 
-function presentationFor(project) {
+function catalogEntry(project) {
   const slug = project.name === 'fate' ? 'fate-solana-games' : project.name;
-  const curated = projectCatalog[slug];
+  return projectCatalog[slug];
+}
+
+function presentationFor(project) {
+  const curated = catalogEntry(project);
   return {
     title: curated?.title || project.name,
     summary: curated?.summary || project.description || 'A public engineering project by Sapir Pirski.',
@@ -54,12 +66,42 @@ function starCount(project, title) {
   return `<a class="repo-stars" href="${escapeHtml(project.html_url)}/stargazers" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span aria-hidden="true">${count}</span></a>`;
 }
 
-function skillList(skills, extraClass = '') {
-  return skills.length ? `<ul class="skill-list ${extraClass}" aria-label="Technologies">${skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join('')}</ul>` : '';
+function technologyStack(skills, language) {
+  return `<div class="card-stack">
+    <div class="stack-heading">${skills.length ? '<span class="stack-label">Project stack</span>' : ''}<span class="repo-language" title="Primary repository language reported by GitHub">GitHub language: <strong>${escapeHtml(language || 'Not reported')}</strong></span></div>
+    ${skills.length ? `<ul class="skill-list" aria-label="Project technology stack">${skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join('')}</ul>` : ''}
+  </div>`;
+}
+
+function normalizedText(value) {
+  return String(value).normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+function searchableText(project) {
+  const {title, summary, skills} = presentationFor(project);
+  return normalizedText([title, summary, ...skills].join(' '));
+}
+
+function updateFilterSelection() {
+  filterButtons.forEach(button => {
+    const selected = button.dataset.filter === filter;
+    button.classList.toggle('active', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
 }
 
 function render() {
-  const visible = projects.filter(project => filter === 'All' || project.category === filter);
+  clearSearchButton.hidden = searchInput.value.length === 0;
+  resetButton.hidden = filter === 'All' && searchInput.value.length === 0;
+  if (!projectsLoaded) return;
+  const terms = normalizedText(searchInput.value).split(' ').filter(Boolean);
+  const matching = projects.filter(project => terms.every(term => project.searchText.includes(term)));
+  const visible = matching.filter(project => filter === 'All' || project.category === filter);
+  filterButtons.forEach(button => {
+    const count = matching.filter(project => button.dataset.filter === 'All' || project.category === button.dataset.filter).length;
+    button.querySelector('.filter-count').textContent = numberFormatter.format(count);
+    button.setAttribute('aria-label', `${button.dataset.filter}, ${count} ${count === 1 ? 'project' : 'projects'}`);
+  });
   grid.innerHTML = visible.map((project, index) => {
     const {title, summary, skills, cover, coverTitle} = presentationFor(project);
     return `<article class="project-card" aria-labelledby="project-${project.id}">
@@ -71,24 +113,42 @@ function render() {
         <div class="card-meta"><span class="card-category">${escapeHtml(project.category)}</span>${starCount(project, title)}</div>
         <h3 id="project-${project.id}"><a href="${escapeHtml(project.html_url)}">${escapeHtml(title)}</a></h3>
         <p class="card-summary">${escapeHtml(summary)}</p>
-        ${skillList(skills)}
+        ${technologyStack(skills, project.language)}
       </div>
     </article>`;
   }).join('');
   empty.hidden = visible.length > 0;
+  empty.textContent = projects.length ? 'No projects match. Try another search or reset the filters.' : 'No public projects to show yet.';
   document.querySelector('#project-count').textContent = projects.length;
+  const message = `${visible.length} of ${projects.length} ${projects.length === 1 ? 'project' : 'projects'}`;
+  if (resultCount.textContent !== message) resultCount.textContent = message;
 }
 
-document.querySelectorAll('.filters button').forEach(button => {
+filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('.filters button').forEach(option => {
-      const selected = option === button;
-      option.classList.toggle('active', selected);
-      option.setAttribute('aria-pressed', String(selected));
-    });
     filter = button.dataset.filter;
+    updateFilterSelection();
     render();
   });
+});
+
+searchInput.addEventListener('input', render);
+function clearSearch() {
+  searchInput.value = '';
+  render();
+  searchInput.focus();
+}
+clearSearchButton.addEventListener('click', clearSearch);
+searchInput.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && searchInput.value) {
+    event.preventDefault();
+    clearSearch();
+  }
+});
+resetButton.addEventListener('click', () => {
+  filter = 'All';
+  updateFilterSelection();
+  clearSearch();
 });
 
 fetch('https://api.github.com/users/sapir-pirski/repos?per_page=100&sort=updated&direction=desc')
@@ -98,10 +158,16 @@ fetch('https://api.github.com/users/sapir-pirski/repos?per_page=100&sort=updated
   })
   .then(data => {
     projects = data.filter(project => !project.fork && !project.archived && project.name !== 'sapir-pirski.github.io' && !hiddenProjects.has(project.name))
-      .map(project => ({...project, category:categoryFor(project)}))
+      .map(project => ({...project, category:categoryFor(project), searchText:searchableText(project)}))
       .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    projectsLoaded = true;
     render();
   })
   .catch(() => {
+    resultCount.textContent = 'Projects unavailable';
+    searchInput.disabled = true;
+    filterButtons.forEach(button => { button.disabled = true; });
+    clearSearchButton.hidden = true;
+    resetButton.hidden = true;
     grid.innerHTML = '<p class="loading">Projects are temporarily unavailable. <a href="https://github.com/sapir-pirski">View them on GitHub</a></p>';
   });

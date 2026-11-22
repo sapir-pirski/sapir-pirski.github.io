@@ -1,14 +1,35 @@
 <!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sapir Pirski — AI Engineer</title><meta name="description" content="Projects in LLM systems, GPU infrastructure, RAG, evaluation, and machine learning by Sapir Pirski."><link rel="icon" href="favicon.svg"><link rel="preload" href="assets/fonts/geist-latin-variable.woff2" as="font" type="font/woff2" crossorigin><script>
 // Apply the saved preference before styles paint; otherwise use the dark palette.
 try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='light'?'light':'dark'}catch{}
-</script><link rel="stylesheet" href="styles.css?v=24"></head><body>
+</script><link rel="stylesheet" href="styles.css?v=25"></head><body>
 <header class="site-header"><a class="identity" href="#top"><img class="avatar" src="assets/github-avatar.png" alt="Sapir Pirski"><span class="identity-copy"><strong>Sapir Pirski</strong><small>AI Engineer</small></span></a><nav aria-label="Main navigation"><a href="#projects" aria-label="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg><span>Projects</span></a><a aria-label="GitHub" href="https://github.com/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.9-1.29 2.74-1.02 2.74-1.02.56 1.37.21 2.39.11 2.64.64.7 1.02 1.59 1.02 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><span>GitHub</span></a><a aria-label="LinkedIn" href="https://www.linkedin.com/in/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 3.5A2.3 2.3 0 1 1 5.3 8a2.3 2.3 0 0 1 0-4.5zM3.4 9.5h3.8V21H3.4zM9.4 9.5H13v1.57h.05c.5-.95 1.73-1.95 3.56-1.95 3.81 0 4.51 2.51 4.51 5.77V21h-3.78v-5.42c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.41-2.08 2.86V21H9.68z"/></svg><span>LinkedIn</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Use light theme" title="Use light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2z"/></svg></button></nav></header>
 <main id="top">
   <section class="intro"><h1>Building reliable AI systems,<br> from evaluation to infrastructure.</h1><p class="summary">LLM Engineering · GPU Systems · RAG · Evaluation · AI Agents</p></section>
   <section class="projects" id="projects">
     <div class="projects-heading"><h2>Projects <span id="project-count">—</span></h2></div>
-    <div class="controls"><div class="filters" role="group" aria-label="Filter projects"><button class="active" type="button" data-filter="All" aria-pressed="true">All</button><button type="button" data-filter="LLM &amp; Agents" aria-pressed="false">LLM &amp; Agents</button><button type="button" data-filter="GPU &amp; Infra" aria-pressed="false">GPU &amp; Infra</button><button type="button" data-filter="RAG &amp; Eval" aria-pressed="false">RAG &amp; Eval</button><button type="button" data-filter="ML &amp; NLP" aria-pressed="false">ML &amp; NLP</button><button type="button" data-filter="Apps" aria-pressed="false">Apps</button></div></div>
-    <div class="project-grid" id="project-grid" aria-live="polite"><p class="loading">Loading projects from GitHub…</p></div>
+    <div class="controls">
+      <div class="search-tools">
+        <div class="search-field">
+          <label for="project-search">Search projects</label>
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input id="project-search" type="search" placeholder="Titles, descriptions, technologies" autocomplete="off" spellcheck="false" aria-controls="project-grid">
+            <button id="clear-search" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
+          </div>
+        </div>
+        <p class="project-sort">Last updated: newest first</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="active" type="button" data-filter="All" aria-pressed="true"><span>All</span><span class="filter-count" aria-hidden="true">—</span></button>
+        <button type="button" data-filter="LLM &amp; Agents" aria-pressed="false"><span>LLM &amp; Agents</span><span class="filter-count" aria-hidden="true">—</span></button>
+        <button type="button" data-filter="GPU &amp; Infra" aria-pressed="false"><span>GPU &amp; Infra</span><span class="filter-count" aria-hidden="true">—</span></button>
+        <button type="button" data-filter="RAG &amp; Eval" aria-pressed="false"><span>RAG &amp; Eval</span><span class="filter-count" aria-hidden="true">—</span></button>
+        <button type="button" data-filter="ML &amp; NLP" aria-pressed="false"><span>ML &amp; NLP</span><span class="filter-count" aria-hidden="true">—</span></button>
+        <button type="button" data-filter="Apps" aria-pressed="false"><span>Apps</span><span class="filter-count" aria-hidden="true">—</span></button>
+      </div>
+      <div class="browse-status"><p id="project-results" role="status" aria-live="polite" aria-atomic="true"></p><button id="reset-projects" type="button" hidden>Reset filters</button></div>
+    </div>
+    <div class="project-grid" id="project-grid"><p class="loading">Loading projects from GitHub…</p></div>
     <p class="empty" id="empty" hidden>No projects match this filter.</p>
   </section>
 </main>
@@ -45,7 +66,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "titleOverlay": true,
-    "coverImage": "assets/projects/covers/ai-recruitment-assistant-illustrated.webp"
+    "coverImage": "assets/projects/covers/ai-recruitment-assistant-illustrated.webp",
+    "category": "LLM & Agents"
   },
   "skipper-30-quiz": {
     "title": "Skipper 30 — Maritime Exam Prep",
@@ -77,7 +99,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/skipper-30-quiz-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "Apps"
   },
   "fate-solana-games": {
     "title": "FATE — AI-Powered Solana Gaming Platform",
@@ -109,7 +132,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/fate-solana-games-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "Apps"
   },
   "sea-gal-tavily-intelligence": {
     "title": "Tavily-Powered Maritime Market Intelligence",
@@ -141,7 +165,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/sea-gal-tavily-intelligence-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "LLM & Agents"
   },
   "h100-fp8-quantization-benchmark": {
     "title": "H100 LLM Quantization & FP8 Serving Benchmark",
@@ -173,7 +198,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/h100-fp8-quantization-benchmark-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "GPU & Infra"
   },
   "gpt2-large-ddp-nebius": {
     "title": "GPT-2 Large Distributed Training on Nebius H100 GPUs",
@@ -205,7 +231,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/gpt2-large-ddp-nebius-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "GPU & Infra"
   },
   "nebius-serverless-genomic-triage": {
     "title": "Nebius Serverless Genomic Triage",
@@ -237,7 +264,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/nebius-serverless-genomic-triage-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "Apps"
   },
   "ppo-glassbox-llm": {
     "title": "PPO Glass-Box LLM: RLHF Training From Scratch",
@@ -269,7 +297,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/ppo-glassbox-llm-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "LLM & Agents"
   },
   "bank-assistant": {
     "title": "Bank Assistant: RAG Policy Chatbot",
@@ -301,7 +330,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/bank-assistant-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "RAG & Eval"
   },
   "coding-agent-eval-pipeline": {
     "title": "Coding-Agent Evaluation Pipeline",
@@ -333,7 +363,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/coding-agent-eval-pipeline-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "RAG & Eval"
   },
   "financebench-rag-evaluation": {
     "title": "FinanceBench RAG Evaluation",
@@ -365,7 +396,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/financebench-rag-evaluation-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "RAG & Eval"
   },
   "h100-text-to-sql-observability": {
     "title": "H100 Text-to-SQL Observability Platform",
@@ -397,7 +429,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/h100-text-to-sql-observability-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "GPU & Infra"
   },
   "gpu-inference-roofline-cuda-graphs": {
     "title": "GPU Inference Optimization on H100",
@@ -429,7 +462,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/gpu-inference-roofline-cuda-graphs-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "GPU & Infra"
   },
   "multimodal-vision-language": {
     "title": "Multimodal Vision-Language System",
@@ -461,7 +495,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/multimodal-vision-language-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "ML & NLP"
   },
   "distributed-gpu-ddp-training": {
     "title": "Distributed GPU Training Pipeline with PyTorch DDP",
@@ -493,7 +528,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/distributed-gpu-ddp-training-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "GPU & Infra"
   },
   "customer-service-agent": {
     "title": "Customer Service Data Analyst Agent",
@@ -525,7 +561,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/customer-service-agent-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "LLM & Agents"
   },
   "pytorch-optimization-project": {
     "title": "PyTorch Optimization for Text Classification",
@@ -557,7 +594,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/pytorch-optimization-project-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "ML & NLP"
   },
   "ai-powered-repository-summarizer-api": {
     "title": "AI-Powered Repository Summarizer API",
@@ -589,7 +627,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/ai-powered-repository-summarizer-api-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "LLM & Agents"
   },
   "from-finetuning-to-attention-inside-llms": {
     "title": "From Fine-Tuning to Attention Inside LLMs",
@@ -621,9 +660,10 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
       }
     ],
     "coverImage": "assets/projects/covers/from-finetuning-to-attention-inside-llms-illustrated.webp",
-    "titleOverlay": true
+    "titleOverlay": true,
+    "category": "LLM & Agents"
   }
 }
 </script>
-<script src="portfolio.js?v=4" defer></script>
+<script src="portfolio.js?v=5" defer></script>
 </body></html>
