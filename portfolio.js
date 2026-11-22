@@ -4,7 +4,6 @@ const empty = document.querySelector('#empty');
 const themeToggle = document.querySelector('#theme-toggle');
 const searchInput = document.querySelector('#project-search');
 const clearSearchButton = document.querySelector('#clear-search');
-const resetButton = document.querySelector('#reset-projects');
 const resultCount = document.querySelector('#project-results');
 const filterButtons = Array.from(document.querySelectorAll('.filters button'));
 const viewButtons = Array.from(document.querySelectorAll('.view-toggle button'));
@@ -112,7 +111,6 @@ function updateFilterSelection() {
 
 function render() {
   clearSearchButton.hidden = searchInput.value.length === 0;
-  resetButton.hidden = filter === 'All' && searchInput.value.length === 0;
   if (!projectsLoaded) return;
   const terms = normalizedText(searchInput.value).split(' ').filter(Boolean);
   const matching = projects.filter(project => terms.every(term => project.searchText.includes(term)));
@@ -138,7 +136,7 @@ function render() {
     </article>`;
   }).join('');
   empty.hidden = visible.length > 0;
-  empty.textContent = projects.length ? 'No projects match. Try another search or reset the filters.' : 'No public projects to show yet.';
+  empty.textContent = projects.length ? 'No projects match. Try another search or category.' : 'No public projects to show yet.';
   const message = `${visible.length} of ${projects.length} ${projects.length === 1 ? 'project' : 'projects'}`;
   if (resultCount.textContent !== message) resultCount.textContent = message;
 }
@@ -164,11 +162,6 @@ searchInput.addEventListener('keydown', event => {
     clearSearch();
   }
 });
-resetButton.addEventListener('click', () => {
-  filter = 'All';
-  updateFilterSelection();
-  clearSearch();
-});
 
 fetch('https://api.github.com/users/sapir-pirski/repos?per_page=100&sort=updated&direction=desc')
   .then(response => {
@@ -187,6 +180,5 @@ fetch('https://api.github.com/users/sapir-pirski/repos?per_page=100&sort=updated
     searchInput.disabled = true;
     filterButtons.forEach(button => { button.disabled = true; });
     clearSearchButton.hidden = true;
-    resetButton.hidden = true;
     grid.innerHTML = '<p class="loading">Projects are temporarily unavailable. <a href="https://github.com/sapir-pirski">View them on GitHub</a></p>';
   });

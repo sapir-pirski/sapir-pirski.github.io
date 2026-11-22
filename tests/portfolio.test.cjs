@@ -42,7 +42,7 @@ const repositories = [
 ];
 
 async function load(data = repositories, ok = true, options = {}) {
-  const selectors = ['#project-grid', '#empty', '#theme-toggle', '#project-search', '#clear-search', '#reset-projects', '#project-results'];
+  const selectors = ['#project-grid', '#empty', '#theme-toggle', '#project-search', '#clear-search', '#project-results'];
   const elements = Object.fromEntries(selectors.map(selector => [selector, element()]));
   elements['#project-catalog'] = {textContent:JSON.stringify(catalog)};
   elements['#project-grid'].innerHTML = '<p>Loading projects from GitHub…</p>';
@@ -128,7 +128,8 @@ test('view switching preserves search, category, counts, order and independent l
   assert.deepEqual(app.counts(), counts);
   assert.equal(app.elements['#project-results'].textContent, '2 of 8 projects');
   assert.equal(app.requests(), 1);
-  app.elements['#reset-projects'].emit('click');
+  app.elements['#clear-search'].emit('click');
+  app.select('All');
   assert.equal(app.grid.dataset.view, 'compact');
   assert.deepEqual(app.ids(), [1, 3, 12, 7, 5, 4, 2, 6]);
   app.selectView('grid');
@@ -192,7 +193,7 @@ test('search and category intersect; facet counts reflect all search matches', a
   assert.equal(app.buttons[1].attributes['aria-label'], 'LLM & Agents, 2 projects');
 });
 
-test('clear retains the category, reset clears both, and Escape clears search', async () => {
+test('clear retains the category, All restores categories, and Escape clears search', async () => {
   const app = await load();
   app.select('LLM & Agents');
   app.search('Recruitment');
@@ -201,10 +202,9 @@ test('clear retains the category, reset clears both, and Escape clears search', 
   app.elements['#clear-search'].emit('click');
   assert.deepEqual(app.ids(), [1, 2]);
   assert.equal(app.elements['#clear-search'].hidden, true);
-  app.elements['#reset-projects'].emit('click');
+  app.select('All');
   assert.equal(app.ids().length, 8);
   assert.equal(app.buttons[0].attributes['aria-pressed'], 'true');
-  assert.equal(app.elements['#reset-projects'].hidden, true);
   app.search('not-a-matching-project');
   let prevented = false;
   app.elements['#project-search'].emit('keydown', {key:'Escape', preventDefault() { prevented = true; }});

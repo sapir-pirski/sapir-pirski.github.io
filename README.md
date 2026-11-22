@@ -35,7 +35,7 @@
 - Automatically loads current public repositories through the GitHub REST API.
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
 - Searches project titles, descriptions, and technology stacks, combined with category filtering.
-- Shows category counts and clear/reset controls; filtered result counts are announced to screen readers without a visible status line.
+- Shows category counts and a search clear control; filtered result counts are announced to screen readers without a visible status line.
 - Offers Grid and Compact views with a saved visitor preference; first-time visitors see the illustrated grid.
 - Curates categories by project purpose for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
 - Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
