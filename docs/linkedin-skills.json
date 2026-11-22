@@ -566,17 +566,17 @@
           }
         },
         {
-          "displayed_skill": "Python (Programming Language)",
+          "displayed_skill": "Large Language Models (LLM)",
           "repository_evidence": [
             {
-              "path": "requirements.txt",
-              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/requirements.txt#L2",
-              "matching_text": "tavily-python>=0.5,<1"
+              "path": "src/sea_gal_intel/llm_client.py",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/llm_client.py#L155",
+              "matching_text": "response = self.client.chat.completions.create("
             },
             {
-              "path": "pyproject.toml",
-              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/pyproject.toml#L10",
-              "matching_text": "requires-python = \">=3.12\""
+              "path": "src/sea_gal_intel/llm_client.py",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/llm_client.py#L156",
+              "matching_text": "model=self.model,"
             }
           ],
           "linkedin": {
