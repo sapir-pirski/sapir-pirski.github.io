@@ -31,6 +31,7 @@
 
 ## Experience
 
+- Gives visitors a clear introduction, Projects / About / Contact navigation, a brief engineering approach, and LinkedIn contact actions.
 - Automatically loads current public repositories through the GitHub REST API.
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
 - Searches project titles, descriptions, and technology stacks, combined with category filtering.
