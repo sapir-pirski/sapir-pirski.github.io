@@ -1,0 +1,375 @@
+{
+  "verified_on": "2026-11-22",
+  "policy": "Use exact LinkedIn-recognized skill names with repository-supported relevance. A custom free-text suggestion is not evidence of a recognized skill. Skills below are corroborated by LinkedIn Learning skill lists or expanding partial-name autocomplete suggestions.",
+  "sources": [
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/building-a-personalized-chatbot-with-openai-and-langchain",
+      "skills": [
+        "LangChain"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/build-ai-agents-and-chatbots-with-langgraph",
+      "skills": [
+        "AI Agents"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/hands-on-ai-introduction-to-retrieval-augmented-generation-rag",
+      "skills": [
+        "Retrieval-Augmented Generation (RAG)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/introduction-to-postgresql",
+      "skills": [
+        "PostgreSQL"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/fine-tuning-for-llms-from-beginner-to-advanced",
+      "skills": [
+        "Fine Tuning"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/react-using-typescript-23743818",
+      "skills": [
+        "React.js",
+        "TypeScript"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/building-responsive-websites-with-canva-23653173",
+      "skills": [
+        "Responsive Web Design"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/hands-on-generative-ai-with-multi-agent-langchain-building-real-world-applications",
+      "skills": [
+        "Application Development",
+        "Generative AI"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/create-an-mcp-app-with-json-render",
+      "skills": [
+        "JSON"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/rust-essential-training",
+      "skills": [
+        "Rust (Programming Language)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/building-an-ethereum-blockchain-app-7-smart-contracts",
+      "skills": [
+        "Smart Contracts",
+        "Blockchain"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/build-an-ai-sql-assistant-with-openai-and-streamlit",
+      "skills": [
+        "OpenAI API",
+        "SQL"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/build-rest-apis-with-fastapi",
+      "skills": [
+        "FastAPI",
+        "REST APIs",
+        "Python (Programming Language)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/model-context-protocol-mcp-hands-on-with-agentic-ai",
+      "skills": [
+        "Application Programming Interfaces (API)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/hands-on-introduction-data-engineering",
+      "skills": [
+        "Data Engineering"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/market-research-foundations",
+      "skills": [
+        "Market Research"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/deep-learning-and-computer-vision-object-detection-with-pytorch",
+      "skills": [
+        "PyTorch",
+        "Deep Learning",
+        "Computer Vision"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/rust-llmops",
+      "skills": [
+        "Large Language Model Operations (LLMOps)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/generative-ai-working-with-large-language-models",
+      "skills": [
+        "Large Language Models (LLM)",
+        "Transformer Models",
+        "Natural Language Processing (NLP)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/mlops-tools-mlflow-and-hugging-face",
+      "skills": [
+        "Hugging Face Products",
+        "MLOps",
+        "MLflow"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/learning-docker-17236240",
+      "skills": [
+        "Docker Products"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/reinforcement-learning-foundations",
+      "skills": [
+        "Reinforcement Learning"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/advanced-rag-applications-with-vector-databases",
+      "skills": [
+        "Vector Databases"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/learning-apache-airflow-39641037",
+      "skills": [
+        "Apache Airflow"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/graphite-and-grafana-visualizing-application-performance/exercise-files",
+      "skills": [
+        "Prometheus.io",
+        "Grafana"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/learning-kubernetes-16086900",
+      "skills": [
+        "Kubernetes"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/introduction-to-model-context-protocol-by-anthropic",
+      "skills": [
+        "Model Context Protocol (MCP)"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/data-analysis-with-postgresql",
+      "skills": [
+        "Data Analysis"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/machine-learning-with-python-logistic-regression",
+      "skills": [
+        "Logistic Regression",
+        "Machine Learning"
+      ]
+    },
+    {
+      "method": "LinkedIn Learning Skills you’ll gain",
+      "url": "https://www.linkedin.com/learning/data-preparation-feature-engineering-and-augmentation-for-ai-models",
+      "skills": [
+        "Feature Engineering"
+      ]
+    },
+    {
+      "method": "LinkedIn Add skill autocomplete",
+      "query": "Parallel Comp",
+      "observed_suggestions": [
+        "Parallel Computing"
+      ],
+      "skills": [
+        "Parallel Computing"
+      ]
+    }
+  ],
+  "projects": {
+    "technion-genai-recruitment-assistant": [
+      "LangChain",
+      "AI Agents",
+      "Retrieval-Augmented Generation (RAG)",
+      "PostgreSQL",
+      "Fine Tuning"
+    ],
+    "skipper-30-quiz": [
+      "React.js",
+      "TypeScript",
+      "Responsive Web Design",
+      "Application Development",
+      "JSON"
+    ],
+    "fate-solana-games": [
+      "Rust (Programming Language)",
+      "Smart Contracts",
+      "Blockchain",
+      "React.js",
+      "OpenAI API"
+    ],
+    "sea-gal-tavily-intelligence": [
+      "Python (Programming Language)",
+      "Application Programming Interfaces (API)",
+      "Data Engineering",
+      "Generative AI",
+      "Market Research"
+    ],
+    "h100-fp8-quantization-benchmark": [
+      "PyTorch",
+      "Large Language Model Operations (LLMOps)",
+      "Parallel Computing",
+      "Deep Learning",
+      "Large Language Models (LLM)"
+    ],
+    "gpt2-large-ddp-nebius": [
+      "PyTorch",
+      "Parallel Computing",
+      "Hugging Face Products",
+      "Docker Products",
+      "Deep Learning"
+    ],
+    "nebius-serverless-genomic-triage": [
+      "FastAPI",
+      "PostgreSQL",
+      "Data Engineering",
+      "REST APIs",
+      "Generative AI"
+    ],
+    "ppo-glassbox-llm": [
+      "PyTorch",
+      "Reinforcement Learning",
+      "Deep Learning",
+      "Transformer Models",
+      "Large Language Models (LLM)"
+    ],
+    "bank-assistant": [
+      "FastAPI",
+      "LangChain",
+      "Retrieval-Augmented Generation (RAG)",
+      "Vector Databases",
+      "OpenAI API"
+    ],
+    "coding-agent-eval-pipeline": [
+      "Apache Airflow",
+      "MLflow",
+      "MLOps",
+      "Docker Products",
+      "AI Agents"
+    ],
+    "financebench-rag-evaluation": [
+      "Retrieval-Augmented Generation (RAG)",
+      "Vector Databases",
+      "PostgreSQL",
+      "Large Language Models (LLM)",
+      "Data Analysis"
+    ],
+    "h100-text-to-sql-observability": [
+      "FastAPI",
+      "SQL",
+      "LangChain",
+      "Prometheus.io",
+      "Grafana"
+    ],
+    "gpu-inference-roofline-cuda-graphs": [
+      "PyTorch",
+      "Parallel Computing",
+      "Deep Learning",
+      "Large Language Model Operations (LLMOps)",
+      "Transformer Models"
+    ],
+    "multimodal-vision-language": [
+      "PyTorch",
+      "Computer Vision",
+      "Deep Learning",
+      "Transformer Models",
+      "Natural Language Processing (NLP)"
+    ],
+    "distributed-gpu-ddp-training": [
+      "PyTorch",
+      "Kubernetes",
+      "Docker Products",
+      "Parallel Computing",
+      "MLOps"
+    ],
+    "customer-service-agent": [
+      "LangChain",
+      "AI Agents",
+      "Model Context Protocol (MCP)",
+      "Data Analysis",
+      "Python (Programming Language)"
+    ],
+    "pytorch-optimization-project": [
+      "PyTorch",
+      "Logistic Regression",
+      "Machine Learning",
+      "Feature Engineering",
+      "Natural Language Processing (NLP)"
+    ],
+    "ai-powered-repository-summarizer-api": [
+      "FastAPI",
+      "REST APIs",
+      "OpenAI API",
+      "JSON",
+      "Large Language Models (LLM)"
+    ],
+    "from-finetuning-to-attention-inside-llms": [
+      "Fine Tuning",
+      "Hugging Face Products",
+      "PyTorch",
+      "Transformer Models",
+      "Natural Language Processing (NLP)"
+    ]
+  }
+}

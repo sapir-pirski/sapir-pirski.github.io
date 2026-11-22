@@ -33,7 +33,7 @@
 
 - Starts directly with a clear introduction and project explorer, followed by a brief engineering approach, LinkedIn contact actions, and a portrait in the footer.
 - Automatically loads current public repositories through the GitHub REST API.
-- Applies curated project titles, artwork, categories, and five relevant skill tags per card.
+- Applies curated project titles, artwork, categories, and five relevant LinkedIn-recognized skill tags per card. Exact names and verification sources are recorded in [docs/linkedin-skills.json](docs/linkedin-skills.json).
 - Searches project titles, descriptions, and technology stacks, combined with category filtering.
 - Shows category counts and a search clear control; filtered result counts are announced to screen readers without a visible status line.
 - Offers Grid and Compact views with a saved visitor preference; first-time visitors see the illustrated grid.

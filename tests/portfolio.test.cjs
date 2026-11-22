@@ -116,7 +116,7 @@ test('view switching preserves search, category, counts, order and independent l
   assert.equal(app.grid.dataset.view, 'grid');
   assert.equal(app.viewButtons[0].attributes['aria-pressed'], 'true');
   app.select('LLM & Agents');
-  app.search('LangGraph');
+  app.search('AI Agents');
   const markup = app.grid.innerHTML;
   const counts = app.counts();
   app.selectView('compact');
@@ -162,10 +162,10 @@ test('blocked storage does not prevent view switching or searching', async () =>
 test('search spans displayed titles, descriptions and stack, ignoring case and extra whitespace', async () => {
   const app = await load();
   for (const [query, expected] of [
-    [' RECRUITMENT   streamlit ', [1]],
+    [' RECRUITMENT   postgresql ', [1]],
     ['seamanship', [3]],
     ['React TypeScript', [3]],
-    ['PDFs LangGraph', [1]],
+    ['PDFs LangChain', [1]],
     ['PyTorch SST-2', [6]],
     ['cafe', [12]],
   ]) {
@@ -180,7 +180,7 @@ test('search and category intersect; facet counts reflect all search matches', a
   const app = await load();
   app.select('RAG & Eval');
   assert.deepEqual(app.ids(), [5, 4]);
-  app.search('LangGraph');
+  app.search('AI Agents');
   assert.deepEqual(app.ids(), []);
   assert.equal(app.elements['#project-results'].textContent, '0 of 8 projects');
   assert.equal(app.elements['#empty'].hidden, false);
@@ -229,7 +229,7 @@ test('GitHub language is separate from stack; title/star links and footer remova
   assert.match(app.grid.innerHTML, /GitHub language: <strong>Python<\/strong>/);
   assert.doesNotMatch(app.grid.innerHTML, /Project stack/);
   assert.match(app.grid.innerHTML, /<li>TypeScript<\/li>/);
-  assert.match(app.grid.innerHTML, /<li>React<\/li>/);
+  assert.match(app.grid.innerHTML, /<li>React\.js<\/li>/);
   app.search('');
   const cards = [...app.grid.innerHTML.matchAll(/<article\b[\s\S]*?<\/article>/g)].map(match => match[0]);
   for (const card of cards) {
