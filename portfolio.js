@@ -142,7 +142,7 @@ function render() {
 
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
-    filter = button.dataset.filter;
+    filter = filter === button.dataset.filter ? 'All' : button.dataset.filter;
     updateFilterSelection();
     render();
   });
