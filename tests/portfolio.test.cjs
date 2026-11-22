@@ -227,7 +227,7 @@ test('GitHub language is separate from stack; title/star links and footer remova
   const app = await load();
   app.search('React');
   assert.match(app.grid.innerHTML, /GitHub language: <strong>Python<\/strong>/);
-  assert.match(app.grid.innerHTML, /Project stack/);
+  assert.doesNotMatch(app.grid.innerHTML, /Project stack/);
   assert.match(app.grid.innerHTML, /<li>TypeScript<\/li>/);
   assert.match(app.grid.innerHTML, /<li>React<\/li>/);
   app.search('');

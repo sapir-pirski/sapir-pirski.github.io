@@ -118,8 +118,7 @@ main,footer{width:min(1180px,calc(100% - 48px));margin:auto}
 .card-summary{font-size:.9375rem;font-weight:400;line-height:1.6;color:var(--muted);margin:0}
 .skill-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;min-width:0}
 .card-stack{margin-top:auto;padding-top:2px;display:grid;gap:8px;min-width:0}
-.stack-heading{display:flex;align-items:baseline;justify-content:space-between;gap:4px 16px;flex-wrap:wrap;color:var(--muted);font-size:.75rem;line-height:1.5}
-.stack-label{font-weight:500}
+.stack-heading{display:flex;align-items:baseline;justify-content:flex-end;gap:4px 16px;flex-wrap:wrap;color:var(--muted);font-size:.75rem;line-height:1.5}
 .repo-language strong{color:var(--ink);font-weight:500}
 .skill-list li{border:0;border-radius:999px;background:var(--raised);color:var(--muted);padding:5px 9px;font:500 .75rem/1.4 var(--font-sans);white-space:normal;overflow-wrap:anywhere;max-width:100%}
 .project-card:hover .skill-list li{background:var(--soft);color:var(--ink)}

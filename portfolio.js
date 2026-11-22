@@ -88,7 +88,7 @@ function starCount(project, title) {
 
 function technologyStack(skills, language) {
   return `<div class="card-stack">
-    <div class="stack-heading">${skills.length ? '<span class="stack-label">Project stack</span>' : ''}<span class="repo-language" title="Primary repository language reported by GitHub">GitHub language: <strong>${escapeHtml(language || 'Not reported')}</strong></span></div>
+    <div class="stack-heading"><span class="repo-language" title="Primary repository language reported by GitHub">GitHub language: <strong>${escapeHtml(language || 'Not reported')}</strong></span></div>
     ${skills.length ? `<ul class="skill-list" aria-label="Project technology stack">${skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join('')}</ul>` : ''}
   </div>`;
 }
