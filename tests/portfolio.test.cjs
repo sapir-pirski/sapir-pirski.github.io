@@ -116,7 +116,7 @@ test('view switching preserves search, category, counts, order and independent l
   assert.equal(app.grid.dataset.view, 'grid');
   assert.equal(app.viewButtons[0].attributes['aria-pressed'], 'true');
   app.select('LLM & Agents');
-  app.search('AI Agents');
+  app.search('LangGraph');
   const markup = app.grid.innerHTML;
   const counts = app.counts();
   app.selectView('compact');
@@ -154,7 +154,7 @@ test('blocked storage does not prevent view switching or searching', async () =>
   assert.equal(app.grid.dataset.view, 'grid');
   app.selectView('compact');
   assert.equal(app.grid.dataset.view, 'compact');
-  app.search('React');
+  app.search('TypeScript');
   assert.deepEqual(app.ids(), [3]);
   assert.equal(app.elements['#project-results'].textContent, '1 of 8 projects');
 });
@@ -162,10 +162,10 @@ test('blocked storage does not prevent view switching or searching', async () =>
 test('search spans displayed titles, descriptions and stack, ignoring case and extra whitespace', async () => {
   const app = await load();
   for (const [query, expected] of [
-    [' RECRUITMENT   postgresql ', [1]],
+    [' RECRUITMENT   pgvector ', [1]],
     ['seamanship', [3]],
     ['React TypeScript', [3]],
-    ['PDFs LangChain', [1]],
+    ['PDFs LangGraph', [1]],
     ['PyTorch SST-2', [6]],
     ['cafe', [12]],
   ]) {
@@ -180,7 +180,7 @@ test('search and category intersect; facet counts reflect all search matches', a
   const app = await load();
   app.select('RAG & Eval');
   assert.deepEqual(app.ids(), [5, 4]);
-  app.search('AI Agents');
+  app.search('persistent');
   assert.deepEqual(app.ids(), []);
   assert.equal(app.elements['#project-results'].textContent, '0 of 8 projects');
   assert.equal(app.elements['#empty'].hidden, false);

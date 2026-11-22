@@ -1,6 +1,6 @@
 {
   "verified_on": "2026-11-22",
-  "policy": "Use exact LinkedIn-recognized skill names with repository-supported relevance. A custom free-text suggestion is not evidence of a recognized skill. Skills below are corroborated by LinkedIn Learning skill lists or expanding partial-name autocomplete suggestions.",
+  "policy": "Card tags name the implementation actually used in each repository. LinkedIn exact-name verification is separate. A related LinkedIn skill is not an exact match and must never replace a distinct technology such as LangGraph with LangChain. Unconfirmed names are not claimed to be absent from LinkedIn.",
   "sources": [
     {
       "method": "LinkedIn Learning Skills you’ll gain",
@@ -238,138 +238,1985 @@
     }
   ],
   "projects": {
-    "technion-genai-recruitment-assistant": [
-      "LangChain",
-      "AI Agents",
-      "Retrieval-Augmented Generation (RAG)",
-      "PostgreSQL",
-      "Fine Tuning"
-    ],
-    "skipper-30-quiz": [
-      "React.js",
-      "TypeScript",
-      "Responsive Web Design",
-      "Application Development",
-      "JSON"
-    ],
-    "fate-solana-games": [
-      "Rust (Programming Language)",
-      "Smart Contracts",
-      "Blockchain",
-      "React.js",
-      "OpenAI API"
-    ],
-    "sea-gal-tavily-intelligence": [
-      "Python (Programming Language)",
-      "Application Programming Interfaces (API)",
-      "Data Engineering",
-      "Generative AI",
-      "Market Research"
-    ],
-    "h100-fp8-quantization-benchmark": [
-      "PyTorch",
-      "Large Language Model Operations (LLMOps)",
-      "Parallel Computing",
-      "Deep Learning",
-      "Large Language Models (LLM)"
-    ],
-    "gpt2-large-ddp-nebius": [
-      "PyTorch",
-      "Parallel Computing",
-      "Hugging Face Products",
-      "Docker Products",
-      "Deep Learning"
-    ],
-    "nebius-serverless-genomic-triage": [
-      "FastAPI",
-      "PostgreSQL",
-      "Data Engineering",
-      "REST APIs",
-      "Generative AI"
-    ],
-    "ppo-glassbox-llm": [
-      "PyTorch",
-      "Reinforcement Learning",
-      "Deep Learning",
-      "Transformer Models",
-      "Large Language Models (LLM)"
-    ],
-    "bank-assistant": [
-      "FastAPI",
-      "LangChain",
-      "Retrieval-Augmented Generation (RAG)",
-      "Vector Databases",
-      "OpenAI API"
-    ],
-    "coding-agent-eval-pipeline": [
-      "Apache Airflow",
-      "MLflow",
-      "MLOps",
-      "Docker Products",
-      "AI Agents"
-    ],
-    "financebench-rag-evaluation": [
-      "Retrieval-Augmented Generation (RAG)",
-      "Vector Databases",
-      "PostgreSQL",
-      "Large Language Models (LLM)",
-      "Data Analysis"
-    ],
-    "h100-text-to-sql-observability": [
-      "FastAPI",
-      "SQL",
-      "LangChain",
-      "Prometheus.io",
-      "Grafana"
-    ],
-    "gpu-inference-roofline-cuda-graphs": [
-      "PyTorch",
-      "Parallel Computing",
-      "Deep Learning",
-      "Large Language Model Operations (LLMOps)",
-      "Transformer Models"
-    ],
-    "multimodal-vision-language": [
-      "PyTorch",
-      "Computer Vision",
-      "Deep Learning",
-      "Transformer Models",
-      "Natural Language Processing (NLP)"
-    ],
-    "distributed-gpu-ddp-training": [
-      "PyTorch",
-      "Kubernetes",
-      "Docker Products",
-      "Parallel Computing",
-      "MLOps"
-    ],
-    "customer-service-agent": [
-      "LangChain",
-      "AI Agents",
-      "Model Context Protocol (MCP)",
-      "Data Analysis",
-      "Python (Programming Language)"
-    ],
-    "pytorch-optimization-project": [
-      "PyTorch",
-      "Logistic Regression",
-      "Machine Learning",
-      "Feature Engineering",
-      "Natural Language Processing (NLP)"
-    ],
-    "ai-powered-repository-summarizer-api": [
-      "FastAPI",
-      "REST APIs",
-      "OpenAI API",
-      "JSON",
-      "Large Language Models (LLM)"
-    ],
-    "from-finetuning-to-attention-inside-llms": [
-      "Fine Tuning",
-      "Hugging Face Products",
-      "PyTorch",
-      "Transformer Models",
-      "Natural Language Processing (NLP)"
-    ]
+    "technion-genai-recruitment-assistant": {
+      "repository": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant",
+      "skills": [
+        {
+          "displayed_skill": "LangGraph",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/pyproject.toml#L8",
+              "matching_text": "description = \"LangGraph recruitment assistant with RAG and transactional scheduling\""
+            },
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/requirements.txt#L2",
+              "matching_text": "langgraph==1.2.16"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "AI Agents",
+              "LangChain"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Retrieval-Augmented Generation (RAG)",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/pyproject.toml#L8",
+              "matching_text": "description = \"LangGraph recruitment assistant with RAG and transactional scheduling\""
+            },
+            {
+              "path": "app/rag/store.py",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/rag/store.py#L1",
+              "matching_text": "\"\"\"RAG chunks and exact cosine retrieval in the application's PostgreSQL database.\"\"\""
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "pgvector",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/requirements.txt#L19",
+              "matching_text": "pgvector==0.5.1"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/README.md#L53",
+              "matching_text": "PostgreSQL/pgvector**. The catalog contains the assignment's Python Developer role"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "PostgreSQL",
+              "Vector Databases"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "ModernBERT",
+          "repository_evidence": [
+            {
+              "path": "app/fine_tuning/huggingface.py",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/fine_tuning/huggingface.py#L1",
+              "matching_text": "\"\"\"Explicit local ModernBERT training; benchmark text is never uploaded.\"\"\""
+            },
+            {
+              "path": "app/agents/backends/huggingface.py",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/agents/backends/huggingface.py#L1",
+              "matching_text": "\"\"\"Local ModernBERT CPU inference with optional pinned model-file downloads.\"\"\""
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Hugging Face Products",
+              "Fine Tuning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "ONNX Runtime",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/requirements.txt#L30",
+              "matching_text": "onnxruntime==1.31.0"
+            },
+            {
+              "path": "app/fine_tuning/huggingface.py",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/fine_tuning/huggingface.py#L178",
+              "matching_text": "import onnxruntime as ort"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "MLOps"
+            ]
+          }
+        }
+      ]
+    },
+    "skipper-30-quiz": {
+      "repository": "https://github.com/sapir-pirski/skipper-30-quiz",
+      "skills": [
+        {
+          "displayed_skill": "React.js",
+          "repository_evidence": [
+            {
+              "path": "app/quiz-app.tsx",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/app/quiz-app.tsx#L3",
+              "matching_text": "import { useEffect, useMemo, useState } from \"react\";"
+            },
+            {
+              "path": "package.json",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/package.json#L18",
+              "matching_text": "\"react\": \"19.2.6\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "TypeScript",
+          "repository_evidence": [
+            {
+              "path": "package.json",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/package.json#L39",
+              "matching_text": "\"typescript\": \"5.9.3\","
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/README.md#L12",
+              "matching_text": "![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "vinext",
+          "repository_evidence": [
+            {
+              "path": "vite.config.ts",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/vite.config.ts#L1",
+              "matching_text": "import vinext from \"vinext\";"
+            },
+            {
+              "path": "package.json",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/package.json#L9",
+              "matching_text": "\"dev\": \"WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Development"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Cloudflare Workers",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/README.md#L114",
+              "matching_text": "- [Cloudflare Workers](https://developers.cloudflare.com/workers/)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Development"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Service Workers",
+          "repository_evidence": [
+            {
+              "path": "app/quiz-app.tsx",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/app/quiz-app.tsx#L41",
+              "matching_text": "window.addEventListener(\"beforeunload\", protectActiveQuiz);"
+            },
+            {
+              "path": "public/sw.js",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/public/sw.js#L3",
+              "matching_text": "self.addEventListener(\"install\",event=>{"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Development"
+            ]
+          }
+        }
+      ]
+    },
+    "fate-solana-games": {
+      "repository": "https://github.com/sapir-pirski/fate-solana-games",
+      "skills": [
+        {
+          "displayed_skill": "Solana",
+          "repository_evidence": [
+            {
+              "path": "programs/fate-games/src/lib.rs",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/programs/fate-games/src/lib.rs#L2",
+              "matching_text": "// Anchor's entrypoint macros still emit Solana target cfg values that newer"
+            },
+            {
+              "path": "package.json",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/package.json#L2",
+              "matching_text": "\"name\": \"fate-solana-games\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Blockchain"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Anchor",
+          "repository_evidence": [
+            {
+              "path": "programs/fate-games/src/lib.rs",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/programs/fate-games/src/lib.rs#L2",
+              "matching_text": "// Anchor's entrypoint macros still emit Solana target cfg values that newer"
+            },
+            {
+              "path": "programs/fate-games/Cargo.toml",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/programs/fate-games/Cargo.toml#L13",
+              "matching_text": "anchor-debug = []"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Smart Contracts"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Rust (Programming Language)",
+          "repository_evidence": [
+            {
+              "path": "programs/fate-games/src/lib.rs",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/programs/fate-games/src/lib.rs#L3",
+              "matching_text": "// Rust check-cfg validation cannot discover from this crate."
+            },
+            {
+              "path": "programs/fate-games/Cargo.toml",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/programs/fate-games/Cargo.toml#L5",
+              "matching_text": "edition = \"2021\""
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "React.js",
+          "repository_evidence": [
+            {
+              "path": "package.json",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/package.json#L34",
+              "matching_text": "\"@react-three/fiber\": \"^9.7.0\","
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/README.md#L16",
+              "matching_text": "<img alt=\"React 19\" src=\"https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white\">"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "OpenAI API",
+          "repository_evidence": [
+            {
+              "path": "package.json",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/package.json#L45",
+              "matching_text": "\"openai\": \"^7.3.0\","
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/fate-solana-games/blob/main/README.md#L18",
+              "matching_text": "<img alt=\"OpenAI Responses API\" src=\"https://img.shields.io/badge/OpenAI-Responses_API-000000?style=for-the-badge&logo=openai&logoColor=white\">"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        }
+      ]
+    },
+    "sea-gal-tavily-intelligence": {
+      "repository": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence",
+      "skills": [
+        {
+          "displayed_skill": "Tavily API",
+          "repository_evidence": [
+            {
+              "path": "src/sea_gal_intel/tavily_client.py",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/tavily_client.py#L9",
+              "matching_text": "from tavily import TavilyClient"
+            },
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/requirements.txt#L2",
+              "matching_text": "tavily-python>=0.5,<1"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Programming Interfaces (API)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Nebius Token Factory",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/README.md#L21",
+              "matching_text": "Sea-Gal Intelligence is a licensing-first research system for Israeli skipper and boat-licensing information, competitors, yacht-sale markets, public-site structure and content opportunities. It combines Tavily discovery with an OpenAI-compatible Neb"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Models (LLM)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Pydantic",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/requirements.txt#L4",
+              "matching_text": "pydantic>=2,<3"
+            },
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/pyproject.toml#L15",
+              "matching_text": "\"pydantic>=2,<3\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Python (Programming Language)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "SQLite",
+          "repository_evidence": [
+            {
+              "path": "src/sea_gal_intel/database.py",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/database.py#L4",
+              "matching_text": "import sqlite3"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/README.md#L21",
+              "matching_text": "Sea-Gal Intelligence is a licensing-first research system for Israeli skipper and boat-licensing information, competitors, yacht-sale markets, public-site structure and content opportunities. It combines Tavily discovery with an OpenAI-compatible Neb"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "SQL"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Market Research",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/README.md#L5",
+              "matching_text": "### Evidence-first search, licensing, competitor and market research"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        }
+      ]
+    },
+    "h100-fp8-quantization-benchmark": {
+      "repository": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark",
+      "skills": [
+        {
+          "displayed_skill": "vLLM",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L4",
+              "matching_text": "# vLLM pins its own compatible torch build, so we do NOT pin torch separately"
+            },
+            {
+              "path": "quant_serving.ipynb",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/quant_serving.ipynb",
+              "matching_text": "# Requirements: ungated, dense, ~3B–8B params, quantizable on the fly by vLLM."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Model Operations (LLMOps)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "FP8",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L9",
+              "matching_text": "# Q2's quantized config is GPU-adaptive: `--quantization fp8` on an H100 (needs Hopper),"
+            },
+            {
+              "path": "quant_serving.ipynb",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/quant_serving.ipynb",
+              "matching_text": "BITS = {\"fp16/bf16\": 16, \"fp8\": 8, \"int8\": 8, \"int4\": 4}"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Deep Learning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "BF16",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L1",
+              "matching_text": "﻿# L6 home assignment — Quantization + BF16 vs on-the-fly 8-bit serving."
+            },
+            {
+              "path": "quant_serving.ipynb",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/quant_serving.ipynb",
+              "matching_text": "BITS = {\"fp16/bf16\": 16, \"fp8\": 8, \"int8\": 8, \"int4\": 4}"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Deep Learning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "GuideLLM",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L14",
+              "matching_text": "guidellm==0.7.1            # `guidellm run` CLI (0.7.x). 0.4.x breaks against the transformers vllm pulls."
+            },
+            {
+              "path": "quant_serving.ipynb",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/quant_serving.ipynb",
+              "matching_text": "# 🔒 DO NOT EDIT — Q2 harness: subprocess plumbing + a sample guidellm report."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Model Operations (LLMOps)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "NVIDIA H100",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L2",
+              "matching_text": "# Use a FRESH virtualenv. Install on your GPU box (H100 or L40S) for Q2."
+            },
+            {
+              "path": "quant_serving.ipynb",
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/quant_serving.ipynb",
+              "matching_text": "(H100 / H200 / GH200). L40S and other Ada cards (8.9) and everything older return"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Parallel Computing"
+            ]
+          }
+        }
+      ]
+    },
+    "gpt2-large-ddp-nebius": {
+      "repository": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius",
+      "skills": [
+        {
+          "displayed_skill": "PyTorch DDP",
+          "repository_evidence": [
+            {
+              "path": "train.py",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/train.py#L21",
+              "matching_text": "from accelerate import DistributedDataParallelKwargs"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/README.md#L3",
+              "matching_text": "# GPT-2 Large DDP Scaling on Nebius"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "PyTorch",
+              "Parallel Computing"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Hugging Face Transformers",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/requirements.txt#L3",
+              "matching_text": "transformers>=4.47,<5"
+            },
+            {
+              "path": "train.py",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/train.py#L11",
+              "matching_text": "from transformers import ("
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Hugging Face Products"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "NCCL",
+          "repository_evidence": [
+            {
+              "path": "train.py",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/train.py#L173",
+              "matching_text": "dist.init_process_group(backend=\"nccl\")"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/README.md#L16",
+              "matching_text": "Four H100 GPUs on separate nodes regressed because NCCL moved GPT-2 Large"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Parallel Computing"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "NVLink",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/README.md#L5",
+              "matching_text": "**A measured study of when four H100 GPUs make training slower—and how NVLink turns the same DDP workload into a 5.39× throughput gain.**"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Parallel Computing"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "SkyPilot",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/requirements.txt#L11",
+              "matching_text": "skypilot[kubernetes]==0.12.3.post1"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/gpt2-large-ddp-nebius/blob/main/README.md#L66",
+              "matching_text": "[SkyPilot](https://docs.skypilot.co/)."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "MLOps"
+            ]
+          }
+        }
+      ]
+    },
+    "nebius-serverless-genomic-triage": {
+      "repository": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage",
+      "skills": [
+        {
+          "displayed_skill": "FastAPI",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/pyproject.toml#L12",
+              "matching_text": "\"fastapi>=0.111\","
+            },
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/requirements.txt#L3",
+              "matching_text": "fastapi>=0.111"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "PostgreSQL",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/README.md#L6",
+              "matching_text": "<img alt=\"PostgreSQL\" src=\"https://img.shields.io/badge/Store-PostgreSQL-4169E1?logo=postgresql&logoColor=white\">"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "Nebius Serverless",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/pyproject.toml#L8",
+              "matching_text": "description = \"Research-grade ClinVar-based genomic variant triage API for Nebius Serverless AI.\""
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/README.md#L7",
+              "matching_text": "<img alt=\"Nebius Serverless AI\" src=\"https://img.shields.io/badge/Nebius-Serverless%20AI-5B5EF7\">"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Development"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "ClinVar",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/pyproject.toml#L8",
+              "matching_text": "description = \"Research-grade ClinVar-based genomic variant triage API for Nebius Serverless AI.\""
+            },
+            {
+              "path": "src/genomic_triage/api.py",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/src/genomic_triage/api.py#L17",
+              "matching_text": "from genomic_triage.models import ClinVarRecord, VariantQuery, VariantSearchQuery"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Data Engineering"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Langfuse",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/pyproject.toml#L30",
+              "matching_text": "\"langfuse>=2.45\","
+            },
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/nebius-serverless-genomic-triage/blob/main/requirements.txt#L20",
+              "matching_text": "langfuse>=2.45"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "MLOps"
+            ]
+          }
+        }
+      ]
+    },
+    "ppo-glassbox-llm": {
+      "repository": "https://github.com/sapir-pirski/ppo-glassbox-llm",
+      "skills": [
+        {
+          "displayed_skill": "PyTorch",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/requirements.txt#L6",
+              "matching_text": "torch>=2.12,<2.13"
+            },
+            {
+              "path": "ppo_glassbox_llm.ipynb",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
+              "matching_text": "# If needed:  pip install torch transformers matplotlib"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "PPO",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/requirements.txt#L5",
+              "matching_text": "# PPO demo dependencies"
+            },
+            {
+              "path": "ppo_glassbox_llm.ipynb",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
+              "matching_text": "clip_eps: float = 0.2         # PPO-Clip trust region width"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Reinforcement Learning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "GPT-2",
+          "repository_evidence": [
+            {
+              "path": "ppo_glassbox_llm.ipynb",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
+              "matching_text": "model_name: str = \"gpt2\"      # try \"Qwen/Qwen2.5-0.5B\" for a bigger actor"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/README.md#L9",
+              "matching_text": "A compact, rerunnable PPO/RLHF-style notebook for seeing the full training loop instead of hiding it behind a trainer abstraction. The notebook uses GPT-2 and transparent reward functions so rollout, KL penalty, GAE, PPO clipping, value learning, bet"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Models (LLM)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "GAE",
+          "repository_evidence": [
+            {
+              "path": "ppo_glassbox_llm.ipynb",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
+              "matching_text": "gae_lambda: float = 0.95      # GAE bias/variance knob"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/README.md#L9",
+              "matching_text": "A compact, rerunnable PPO/RLHF-style notebook for seeing the full training loop instead of hiding it behind a trainer abstraction. The notebook uses GPT-2 and transparent reward functions so rollout, KL penalty, GAE, PPO clipping, value learning, bet"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Reinforcement Learning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "KL Control",
+          "repository_evidence": [
+            {
+              "path": "ppo_glassbox_llm.ipynb",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
+              "matching_text": "def build_rewards(R, kl_tok, beta, mask=None, eos_seen=None, missing_eos_penalty=0.0):"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/README.md#L9",
+              "matching_text": "A compact, rerunnable PPO/RLHF-style notebook for seeing the full training loop instead of hiding it behind a trainer abstraction. The notebook uses GPT-2 and transparent reward functions so rollout, KL penalty, GAE, PPO clipping, value learning, bet"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Reinforcement Learning"
+            ]
+          }
+        }
+      ]
+    },
+    "bank-assistant": {
+      "repository": "https://github.com/sapir-pirski/bank-assistant",
+      "skills": [
+        {
+          "displayed_skill": "FastAPI",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/requirements.txt#L1",
+              "matching_text": "fastapi>=0.115.0,<1.0.0"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/README.md#L4",
+              "matching_text": "![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?logo=fastapi&logoColor=white)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "LangGraph",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/requirements.txt#L6",
+              "matching_text": "langgraph>=0.2.60,<1.0.0"
+            },
+            {
+              "path": "app/rag.py",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/app/rag.py#L11",
+              "matching_text": "# LangGraph imports its default serializer before MemorySaver can be configured."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "AI Agents",
+              "LangChain"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "ChromaDB",
+          "repository_evidence": [
+            {
+              "path": "app/vector_store.py",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/app/vector_store.py#L6",
+              "matching_text": "import chromadb"
+            },
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/requirements.txt#L5",
+              "matching_text": "chromadb>=1.0.0,<2.0.0"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Vector Databases"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "OpenAI API",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/requirements.txt#L4",
+              "matching_text": "openai>=2.34.0,<3.0.0"
+            },
+            {
+              "path": "app/rag.py",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/app/rag.py#L18",
+              "matching_text": "from app.openai_utils import build_openai_client, create_response_with_temperature, extract_response_text"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "Retrieval-Augmented Generation (RAG)",
+          "repository_evidence": [
+            {
+              "path": "app/rag.py",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/app/rag.py#L61",
+              "matching_text": "CLASSIFIER_PROMPT = \"\"\"You classify user input for a bank policy RAG assistant."
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/bank-assistant/blob/main/README.md#L10",
+              "matching_text": "A Dockerized RAG assistant for the provided bank policy documents. It indexes markdown files, retrieves relevant policy chunks with ChromaDB, and uses OpenAI to generate polite, cited answers grounded only in retrieved data."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        }
+      ]
+    },
+    "coding-agent-eval-pipeline": {
+      "repository": "https://github.com/sapir-pirski/coding-agent-eval-pipeline",
+      "skills": [
+        {
+          "displayed_skill": "Apache Airflow",
+          "repository_evidence": [
+            {
+              "path": "dags/evaluate_agent.py",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/dags/evaluate_agent.py#L7",
+              "matching_text": "from airflow import DAG"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/README.md#L5",
+              "matching_text": "<img alt=\"Apache Airflow\" src=\"https://img.shields.io/badge/Apache%20Airflow-DockerOperator-017CEE?logo=apacheairflow&logoColor=white\">"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "MLflow",
+          "repository_evidence": [
+            {
+              "path": "pipeline/evaluate_agent.py",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/pipeline/evaluate_agent.py#L14",
+              "matching_text": "from pipeline.mlflow_logger import log_run"
+            },
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/pyproject.toml#L10",
+              "matching_text": "\"mlflow>=3.0.0\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "SWE-bench",
+          "repository_evidence": [
+            {
+              "path": "pipeline/evaluate_agent.py",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/pipeline/evaluate_agent.py#L24",
+              "matching_text": "\"full\": \"princeton-nlp/SWE-bench\","
+            },
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/pyproject.toml#L12",
+              "matching_text": "\"swebench>=4.1.0\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "MLOps"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "mini-swe-agent",
+          "repository_evidence": [
+            {
+              "path": "pipeline/evaluate_agent.py",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/pipeline/evaluate_agent.py#L274",
+              "matching_text": "raise FileNotFoundError(f\"mini-swe-agent did not create predictions at {generated_preds}\")"
+            },
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/pyproject.toml#L11",
+              "matching_text": "\"mini-swe-agent>=2.4.1\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "AI Agents"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Docker",
+          "repository_evidence": [
+            {
+              "path": "dags/evaluate_agent.py",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/dags/evaluate_agent.py#L9",
+              "matching_text": "from airflow.providers.docker.operators.docker import DockerOperator"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/coding-agent-eval-pipeline/blob/main/README.md#L5",
+              "matching_text": "<img alt=\"Apache Airflow\" src=\"https://img.shields.io/badge/Apache%20Airflow-DockerOperator-017CEE?logo=apacheairflow&logoColor=white\">"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Docker Products"
+            ]
+          }
+        }
+      ]
+    },
+    "financebench-rag-evaluation": {
+      "repository": "https://github.com/sapir-pirski/financebench-rag-evaluation",
+      "skills": [
+        {
+          "displayed_skill": "FAISS",
+          "repository_evidence": [
+            {
+              "path": "rag_faiss/assignment_2_rag_faiss.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_faiss/assignment_2_rag_faiss.ipynb",
+              "matching_text": "\"faiss-cpu\","
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/README.md#L6",
+              "matching_text": "![Vector Store](https://img.shields.io/badge/vector_store-FAISS%20%2B%20pgvector-0F766E)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Vector Databases"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "pgvector",
+          "repository_evidence": [
+            {
+              "path": "rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "matching_text": "\"pgvector\","
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/README.md#L6",
+              "matching_text": "![Vector Store](https://img.shields.io/badge/vector_store-FAISS%20%2B%20pgvector-0F766E)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "PostgreSQL",
+              "Vector Databases"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "BGE Reranking",
+          "repository_evidence": [
+            {
+              "path": "rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "matching_text": "\"experiment\": \"bge_reranker_top4\","
+            },
+            {
+              "path": "rag_faiss/assignment_2_rag_faiss.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_faiss/assignment_2_rag_faiss.ipynb",
+              "matching_text": "\"experiment\": \"bge_reranker_top4\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Retrieval-Augmented Generation (RAG)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Ragas",
+          "repository_evidence": [
+            {
+              "path": "rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "matching_text": "\"ragas\","
+            },
+            {
+              "path": "rag_faiss/assignment_2_rag_faiss.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_faiss/assignment_2_rag_faiss.ipynb",
+              "matching_text": "\"ragas\","
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Retrieval-Augmented Generation (RAG)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "LLM-as-Judge",
+          "repository_evidence": [
+            {
+              "path": "rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "matching_text": "TASK6_JUDGE_MODEL = os.getenv(\"NEBIUS_JUDGE_MODEL\", \"deepseek-ai/DeepSeek-V3.2\")"
+            },
+            {
+              "path": "rag_faiss/assignment_2_rag_faiss.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_faiss/assignment_2_rag_faiss.ipynb",
+              "matching_text": "TASK6_JUDGE_MODEL = os.getenv(\"NEBIUS_JUDGE_MODEL\", \"deepseek-ai/DeepSeek-V3.2\")"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Models (LLM)"
+            ]
+          }
+        }
+      ]
+    },
+    "h100-text-to-sql-observability": {
+      "repository": "https://github.com/sapir-pirski/h100-text-to-sql-observability",
+      "skills": [
+        {
+          "displayed_skill": "vLLM",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/pyproject.toml#L8",
+              "matching_text": "\"vllm>=0.9.0,<0.11\","
+            },
+            {
+              "path": "agent/graph.py",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/agent/graph.py#L16",
+              "matching_text": "VLLM_BASE_URL,"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Model Operations (LLMOps)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "LangGraph",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/pyproject.toml#L10",
+              "matching_text": "\"langgraph>=1.0,<2.0\","
+            },
+            {
+              "path": "agent/graph.py",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/agent/graph.py#L1",
+              "matching_text": "\"\"\"LangGraph wiring for the text-to-SQL agent.\"\"\""
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "AI Agents",
+              "LangChain"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "FastAPI",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/pyproject.toml#L15",
+              "matching_text": "\"fastapi>=0.115,<1.0\","
+            },
+            {
+              "path": "agent/server.py",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/agent/server.py#L1",
+              "matching_text": "\"\"\"FastAPI wrapper exposing the agent over HTTP."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "Langfuse",
+          "repository_evidence": [
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/pyproject.toml#L13",
+              "matching_text": "\"langfuse>=4.0,<5.0\","
+            },
+            {
+              "path": "agent/server.py",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/agent/server.py#L35",
+              "matching_text": "# Langfuse callback handler. If keys are set we initialize it; failures"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "MLOps"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Prometheus",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/h100-text-to-sql-observability/blob/main/README.md#L4",
+              "matching_text": "inference with vLLM, a LangGraph repair agent, Langfuse traces, Prometheus and"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Prometheus.io"
+            ]
+          }
+        }
+      ]
+    },
+    "gpu-inference-roofline-cuda-graphs": {
+      "repository": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs",
+      "skills": [
+        {
+          "displayed_skill": "PyTorch",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/requirements.txt#L6",
+              "matching_text": "torch"
+            },
+            {
+              "path": "task/decode_optimization.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/decode_optimization.ipynb",
+              "matching_text": "import torch"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "torch.compile",
+          "repository_evidence": [
+            {
+              "path": "task/decode_optimization.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/decode_optimization.ipynb",
+              "matching_text": "compiled_model = torch.compile(model, options={\"triton.cudagraphs\": False})"
+            },
+            {
+              "path": "task/compile_cuda_graphs.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/compile_cuda_graphs.ipynb",
+              "matching_text": "breaks — it must run under torch.compile(..., fullgraph=True)."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "PyTorch"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "CUDA Graphs",
+          "repository_evidence": [
+            {
+              "path": "task/decode_optimization.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/decode_optimization.ipynb",
+              "matching_text": "def _make_cuda_graph_decode_runner(model, input_ids, max_new_tokens: int):"
+            },
+            {
+              "path": "task/compile_cuda_graphs.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/compile_cuda_graphs.ipynb",
+              "matching_text": "\"\"\"Capture `fn(example_input)` into a CUDA graph; return `graphed(x)` that"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Parallel Computing"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "KV Cache",
+          "repository_evidence": [
+            {
+              "path": "task/decode_optimization.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/decode_optimization.ipynb",
+              "matching_text": "\"\"\"V0 — intentionally slow. Greedy decode with NO KV cache: every step"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/README.md#L41",
+              "matching_text": "| `task/decode_optimization.ipynb` | Profiling a slow greedy decode loop and replacing it with KV-cache + compile/bf16 path | Perfetto traces in `results/decode_optimization/` |"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Large Language Model Operations (LLMOps)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Roofline Analysis",
+          "repository_evidence": [
+            {
+              "path": "task/roofline.ipynb",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/task/roofline.ipynb",
+              "matching_text": "\"\"\"Arithmetic intensity (FLOP/byte) at the roofline ridge point.\"\"\""
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/gpu-inference-roofline-cuda-graphs/blob/main/README.md#L1",
+              "matching_text": "# From Roofline to CUDA Graphs"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Parallel Computing"
+            ]
+          }
+        }
+      ]
+    },
+    "multimodal-vision-language": {
+      "repository": "https://github.com/sapir-pirski/multimodal-vision-language",
+      "skills": [
+        {
+          "displayed_skill": "BLIP",
+          "repository_evidence": [
+            {
+              "path": "LLM_Architecture_HW4.ipynb",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/LLM_Architecture_HW4.ipynb",
+              "matching_text": "BlipProcessor,"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/README.md#L11",
+              "matching_text": "- Generate image captions with BLIP."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Computer Vision"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "CLIP",
+          "repository_evidence": [
+            {
+              "path": "LLM_Architecture_HW4.ipynb",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/LLM_Architecture_HW4.ipynb",
+              "matching_text": "CLIPModel,"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/README.md#L13",
+              "matching_text": "- Recognize public figures from LFW face images using CLIP embeddings, cosine similarity, and an optional ArcFace/InsightFace comparison."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Computer Vision"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Hugging Face Transformers",
+          "repository_evidence": [
+            {
+              "path": "LLM_Architecture_HW4.ipynb",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/LLM_Architecture_HW4.ipynb",
+              "matching_text": "%pip install -q notebook==7.5.6 nbconvert==7.17.1 ipykernel==6.31.0 torch==2.8.0 torchvision==0.23.0 transformers==4.57.6 pillow==11.3.0 matplotlib==3.9.4 matplotlib-inline==0.2.2 opencv-python==4.13.0.92 requests==2.32.5 scikit-learn==1.6.1 scikit-i"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/README.md#L71",
+              "matching_text": "- `transformers`"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Hugging Face Products"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "PyTorch",
+          "repository_evidence": [
+            {
+              "path": "LLM_Architecture_HW4.ipynb",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/LLM_Architecture_HW4.ipynb",
+              "matching_text": "%pip install -q notebook==7.5.6 nbconvert==7.17.1 ipykernel==6.31.0 torch==2.8.0 torchvision==0.23.0 transformers==4.57.6 pillow==11.3.0 matplotlib==3.9.4 matplotlib-inline==0.2.2 opencv-python==4.13.0.92 requests==2.32.5 scikit-learn==1.6.1 scikit-i"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/README.md#L69",
+              "matching_text": "- `torch`"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "Visual Question Answering",
+          "repository_evidence": [
+            {
+              "path": "LLM_Architecture_HW4.ipynb",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/LLM_Architecture_HW4.ipynb",
+              "matching_text": "TASK2_VQA_MODEL_NAME = \"Salesforce/blip-vqa-base\""
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/multimodal-vision-language/blob/main/README.md#L3",
+              "matching_text": "Homework project for multimodal model workflows: image captioning, visual question answering, and personalized public-figure face recognition."
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Computer Vision"
+            ]
+          }
+        }
+      ]
+    },
+    "distributed-gpu-ddp-training": {
+      "repository": "https://github.com/sapir-pirski/distributed-gpu-ddp-training",
+      "skills": [
+        {
+          "displayed_skill": "PyTorch DDP",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/distributed-gpu-ddp-training/blob/main/README.md#L1",
+              "matching_text": "# Nebius Academy DDP Training"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "PyTorch",
+              "Parallel Computing"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Kubernetes",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/distributed-gpu-ddp-training/blob/main/README.md#L7",
+              "matching_text": "This repository contains a completed distributed GPU training pipeline for the Nebius Academy DDP assignment. The project builds a Docker image, pushes it to Nebius Container Registry, provisions a two-node GPU Kubernetes node group, and runs a multi"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "NCCL",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/distributed-gpu-ddp-training/blob/main/requirements.txt#L2",
+              "matching_text": "# PyTorch, CUDA, and NCCL are provided by the NVIDIA base image."
+            },
+            {
+              "path": "train.py",
+              "url": "https://github.com/sapir-pirski/distributed-gpu-ddp-training/blob/main/train.py#L17",
+              "matching_text": "dist.init_process_group(backend=\"nccl\")"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Parallel Computing"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Docker",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/distributed-gpu-ddp-training/blob/main/README.md#L7",
+              "matching_text": "This repository contains a completed distributed GPU training pipeline for the Nebius Academy DDP assignment. The project builds a Docker image, pushes it to Nebius Container Registry, provisions a two-node GPU Kubernetes node group, and runs a multi"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Docker Products"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "SkyPilot",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/distributed-gpu-ddp-training/blob/main/README.md#L7",
+              "matching_text": "This repository contains a completed distributed GPU training pipeline for the Nebius Academy DDP assignment. The project builds a Docker image, pushes it to Nebius Container Registry, provisions a two-node GPU Kubernetes node group, and runs a multi"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "MLOps"
+            ]
+          }
+        }
+      ]
+    },
+    "customer-service-agent": {
+      "repository": "https://github.com/sapir-pirski/customer-service-agent",
+      "skills": [
+        {
+          "displayed_skill": "LangGraph",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/requirements.txt#L1",
+              "matching_text": "langgraph==1.2.2"
+            },
+            {
+              "path": "src/memory.py",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/src/memory.py#L1",
+              "matching_text": "\"\"\"Persistent LangGraph checkpoint helpers.\"\"\""
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "AI Agents",
+              "LangChain"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "FastMCP",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/requirements.txt#L10",
+              "matching_text": "fastmcp==3.3.1"
+            },
+            {
+              "path": "mcp_server.py",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/mcp_server.py#L1",
+              "matching_text": "\"\"\"FastMCP server exposing customer service dataset analysis tools.\"\"\""
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Model Context Protocol (MCP)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Streamlit",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/requirements.txt#L14",
+              "matching_text": "streamlit==1.57.0"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/README.md#L6",
+              "matching_text": "![Streamlit](https://img.shields.io/badge/Streamlit-chat%20UI-ff4b4b?logo=streamlit&logoColor=white)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Development"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "SQLite",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/requirements.txt#L2",
+              "matching_text": "langgraph-checkpoint-sqlite==3.1.0"
+            },
+            {
+              "path": "src/memory.py",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/src/memory.py#L5",
+              "matching_text": "import sqlite3"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "SQL"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "ReAct",
+          "repository_evidence": [
+            {
+              "path": "src/agent.py",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/src/agent.py#L1",
+              "matching_text": "\"\"\"LangGraph ReAct agent for customer service dataset analysis.\"\"\""
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/README.md#L4",
+              "matching_text": "![LangGraph](https://img.shields.io/badge/LangGraph-ReAct%20workflow-1f6feb)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "AI Agents"
+            ]
+          }
+        }
+      ]
+    },
+    "pytorch-optimization-project": {
+      "repository": "https://github.com/sapir-pirski/pytorch-optimization-project",
+      "skills": [
+        {
+          "displayed_skill": "PyTorch",
+          "repository_evidence": [
+            {
+              "path": "notebooks/LLM_Architectures.ipynb",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/notebooks/LLM_Architectures.ipynb",
+              "matching_text": "%pip install datasets==4.5.0 ipykernel==6.31.0 ipywidgets==8.1.5 notebook==7.5.5 matplotlib==3.9.4 numpy==2.0.2 seaborn==0.13.2 torch==2.8.0"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/README.md#L2",
+              "matching_text": "<img src=\"assets/optimization-project-hero.svg\" alt=\"PyTorch Optimization Project workflow\" width=\"100%\" />"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "Bag-of-Words",
+          "repository_evidence": [
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/README.md#L18",
+              "matching_text": "This repository packages [`notebooks/LLM_Architectures.ipynb`](notebooks/LLM_Architectures.ipynb) as a reproducible optimization project. It starts with SST-2 sentiment text, builds a Bag-of-Words logistic regression model in PyTorch, then studies ho"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Feature Engineering"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Logistic Regression",
+          "repository_evidence": [
+            {
+              "path": "notebooks/LLM_Architectures.ipynb",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/notebooks/LLM_Architectures.ipynb",
+              "matching_text": "def sgd_logistic_regression("
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/README.md#L18",
+              "matching_text": "This repository packages [`notebooks/LLM_Architectures.ipynb`](notebooks/LLM_Architectures.ipynb) as a reproducible optimization project. It starts with SST-2 sentiment text, builds a Bag-of-Words logistic regression model in PyTorch, then studies ho"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "SGD",
+          "repository_evidence": [
+            {
+              "path": "notebooks/LLM_Architectures.ipynb",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/notebooks/LLM_Architectures.ipynb",
+              "matching_text": "Train a logistic regression model using mini-batch SGD."
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/README.md#L5",
+              "matching_text": "<p><strong>A notebook-first project for text classification, SGD dynamics, L1 sparsity, and optimizer geometry.</strong></p>"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Machine Learning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "L1 Regularization",
+          "repository_evidence": [
+            {
+              "path": "notebooks/LLM_Architectures.ipynb",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/notebooks/LLM_Architectures.ipynb",
+              "matching_text": "fig.suptitle(\"L1 regularization summary\", fontsize=16, fontweight=\"700\")"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/pytorch-optimization-project/blob/main/README.md#L18",
+              "matching_text": "This repository packages [`notebooks/LLM_Architectures.ipynb`](notebooks/LLM_Architectures.ipynb) as a reproducible optimization project. It starts with SST-2 sentiment text, builds a Bag-of-Words logistic regression model in PyTorch, then studies ho"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Machine Learning"
+            ]
+          }
+        }
+      ]
+    },
+    "ai-powered-repository-summarizer-api": {
+      "repository": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api",
+      "skills": [
+        {
+          "displayed_skill": "FastAPI",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/requirements.txt#L1",
+              "matching_text": "fastapi>=0.115.0,<1.0.0"
+            },
+            {
+              "path": "app/services/llm_service.py",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/llm_service.py#L7",
+              "matching_text": "from fastapi import HTTPException"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "verified",
+            "related_verified_skills": []
+          }
+        },
+        {
+          "displayed_skill": "GitHub API",
+          "repository_evidence": [
+            {
+              "path": "app/services/repository_service.py",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/repository_service.py#L13",
+              "matching_text": "GITHUB_API_BASE,"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/README.md#L79",
+              "matching_text": "| `GITHUB_TOKEN` | No | Raises GitHub API rate limits for repository fetching. |"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Application Programming Interfaces (API)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "OpenAI SDK",
+          "repository_evidence": [
+            {
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/requirements.txt#L4",
+              "matching_text": "openai>=1.40.0,<2.0.0"
+            },
+            {
+              "path": "app/services/llm_service.py",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/llm_service.py#L8",
+              "matching_text": "from openai import ("
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "OpenAI API"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Pydantic",
+          "repository_evidence": [
+            {
+              "path": "app/schemas.py",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/schemas.py#L3",
+              "matching_text": "from pydantic import BaseModel, Field"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Python (Programming Language)"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "JSON Mode",
+          "repository_evidence": [
+            {
+              "path": "app/services/llm_service.py",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/llm_service.py#L112",
+              "matching_text": "response_format={\"type\": \"json_object\"},"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/README.md#L152",
+              "matching_text": "The LLM call uses a system/user chat format compatible with `meta-llama/Llama-3.3-70B-Instruct`. Repository metadata and file excerpts are treated as untrusted reference material, so instructions found inside repository files are ignored. The prompt "
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "JSON"
+            ]
+          }
+        }
+      ]
+    },
+    "from-finetuning-to-attention-inside-llms": {
+      "repository": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms",
+      "skills": [
+        {
+          "displayed_skill": "QLoRA",
+          "repository_evidence": [
+            {
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "# Runtime / QLoRA constants"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/README.md#L5",
+              "matching_text": "![QLoRA](https://img.shields.io/badge/Fine--tuning-QLoRA-7C3AED)"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Fine Tuning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "PEFT",
+          "repository_evidence": [
+            {
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "%pip install --disable-pip-version-check notebook ipykernel torch transformers peft pandas matplotlib seaborn accelerate"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Fine Tuning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "bitsandbytes",
+          "repository_evidence": [
+            {
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "%pip install --disable-pip-version-check -q bitsandbytes datasets"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Fine Tuning"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Hugging Face Transformers",
+          "repository_evidence": [
+            {
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "%pip install --disable-pip-version-check notebook ipykernel torch transformers peft pandas matplotlib seaborn accelerate"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Hugging Face Products"
+            ]
+          }
+        },
+        {
+          "displayed_skill": "Attention",
+          "repository_evidence": [
+            {
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "# Attention experiment constants"
+            },
+            {
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/README.md#L1",
+              "matching_text": "# From Fine-Tuning to Attention Inside LLMs"
+            }
+          ],
+          "linkedin": {
+            "exact_name_status": "not_confirmed",
+            "related_verified_skills": [
+              "Transformer Models"
+            ]
+          }
+        }
+      ]
+    }
   }
 }
