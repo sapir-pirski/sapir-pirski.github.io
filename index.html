@@ -1,7 +1,7 @@
 <!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sapir Pirski — AI Engineer</title><meta name="description" content="Projects in LLM systems, GPU infrastructure, RAG, evaluation, and machine learning by Sapir Pirski."><link rel="icon" href="favicon.svg"><link rel="preload" href="assets/fonts/geist-latin-variable.woff2" as="font" type="font/woff2" crossorigin><script>
 // Apply the saved preference before styles paint; otherwise use the dark palette.
 try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='light'?'light':'dark'}catch{}
-</script><link rel="stylesheet" href="styles.css?v=30"></head><body>
+</script><link rel="stylesheet" href="styles.css?v=31"></head><body>
 <main id="top">
   <section class="intro" aria-labelledby="intro-title">
     <h1 id="intro-title">AI systems,<br> <span>built to be measured.</span></h1>
@@ -9,14 +9,13 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
     <div class="intro-actions"><a class="button-link button-link--primary" href="#projects">View projects</a><a class="button-link button-link--secondary" href="https://www.linkedin.com/in/sapir-pirski">Connect on LinkedIn</a></div>
   </section>
   <section class="projects" id="projects">
-    <div class="projects-heading"><h2>Projects <span id="project-count">—</span></h2></div>
+    <div class="projects-heading"><h2>Projects</h2></div>
     <div class="controls">
       <div class="search-tools">
         <div class="search-field">
-          <label for="project-search">Search projects</label>
           <div class="search-box">
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
-            <input id="project-search" type="search" placeholder="Titles, descriptions, technologies" autocomplete="off" spellcheck="false" aria-controls="project-grid">
+            <input id="project-search" type="search" aria-label="Search projects" placeholder="Titles, descriptions, technologies" autocomplete="off" spellcheck="false" aria-controls="project-grid">
             <button id="clear-search" type="button" aria-label="Clear search" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
           </div>
         </div>
@@ -36,7 +35,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         <button type="button" data-filter="ML &amp; NLP" aria-pressed="false"><span>ML &amp; NLP</span><span class="filter-count" aria-hidden="true">—</span></button>
         <button type="button" data-filter="Apps" aria-pressed="false"><span>Apps</span><span class="filter-count" aria-hidden="true">—</span></button>
       </div>
-      <div class="browse-status"><p id="project-results" role="status" aria-live="polite" aria-atomic="true"></p><button id="reset-projects" type="button" hidden>Reset filters</button></div>
+      <p id="project-results" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <button id="reset-projects" type="button" hidden>Reset filters</button>
     </div>
     <div class="project-grid" id="project-grid" data-view="grid"><p class="loading">Loading projects from GitHub…</p></div>
     <p class="empty" id="empty" hidden>No projects match this filter.</p>
@@ -682,5 +682,5 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
   }
 }
 </script>
-<script src="portfolio.js?v=6" defer></script>
+<script src="portfolio.js?v=7" defer></script>
 </body></html>

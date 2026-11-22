@@ -42,7 +42,7 @@ const repositories = [
 ];
 
 async function load(data = repositories, ok = true, options = {}) {
-  const selectors = ['#project-grid', '#empty', '#theme-toggle', '#project-search', '#clear-search', '#reset-projects', '#project-results', '#project-count'];
+  const selectors = ['#project-grid', '#empty', '#theme-toggle', '#project-search', '#clear-search', '#reset-projects', '#project-results'];
   const elements = Object.fromEntries(selectors.map(selector => [selector, element()]));
   elements['#project-catalog'] = {textContent:JSON.stringify(catalog)};
   elements['#project-grid'].innerHTML = '<p>Loading projects from GitHub…</p>';
@@ -249,7 +249,6 @@ test('API errors do not report zero projects, while a real empty collection does
   assert.equal(failed.elements['#project-search'].disabled, true);
   assert(failed.buttons.every(button => button.disabled));
   assert.match(failed.grid.innerHTML, /View them on GitHub/);
-  assert.equal(failed.elements['#project-count'].textContent, '');
   const empty = await load([]);
   assert.equal(empty.elements['#project-results'].textContent, '0 of 0 projects');
   assert.equal(empty.elements['#empty'].hidden, false);

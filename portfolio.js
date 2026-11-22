@@ -139,7 +139,6 @@ function render() {
   }).join('');
   empty.hidden = visible.length > 0;
   empty.textContent = projects.length ? 'No projects match. Try another search or reset the filters.' : 'No public projects to show yet.';
-  document.querySelector('#project-count').textContent = projects.length;
   const message = `${visible.length} of ${projects.length} ${projects.length === 1 ? 'project' : 'projects'}`;
   if (resultCount.textContent !== message) resultCount.textContent = message;
 }
