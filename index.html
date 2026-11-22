@@ -1,7 +1,7 @@
 <!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sapir Pirski — AI Engineer</title><meta name="description" content="Projects in LLM systems, GPU infrastructure, RAG, evaluation, and machine learning by Sapir Pirski."><link rel="icon" href="favicon.svg"><link rel="preload" href="assets/fonts/geist-latin-variable.woff2" as="font" type="font/woff2" crossorigin><script>
 // Apply the saved preference before styles paint; otherwise use the dark palette.
 try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme')==='light'?'light':'dark'}catch{}
-</script><link rel="stylesheet" href="styles.css?v=21"></head><body>
+</script><link rel="stylesheet" href="styles.css?v=22"></head><body>
 <header class="site-header"><a class="identity" href="#top"><img class="avatar" src="assets/github-avatar.png" alt="Sapir Pirski"><span class="identity-copy"><strong>Sapir Pirski</strong><small>AI Engineer</small></span></a><nav aria-label="Main navigation"><a href="#projects" aria-label="Projects"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4zM14 5h6v6h-6zM4 15h6v4H4zM14 15h6v4h-6z"/></svg><span>Projects</span></a><a aria-label="GitHub" href="https://github.com/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.87c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 6.82a9.6 9.6 0 0 1 2.5.34c1.9-1.29 2.74-1.02 2.74-1.02.56 1.37.21 2.39.11 2.64.64.7 1.02 1.59 1.02 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.86v2.76c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg><span>GitHub</span></a><a aria-label="LinkedIn" href="https://www.linkedin.com/in/sapir-pirski" target="_blank" rel="noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.3 3.5A2.3 2.3 0 1 1 5.3 8a2.3 2.3 0 0 1 0-4.5zM3.4 9.5h3.8V21H3.4zM9.4 9.5H13v1.57h.05c.5-.95 1.73-1.95 3.56-1.95 3.81 0 4.51 2.51 4.51 5.77V21h-3.78v-5.42c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.41-2.08 2.86V21H9.68z"/></svg><span>LinkedIn</span></a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Use light theme" title="Use light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.2A8.4 8.4 0 0 1 8.8 3.8 8.5 8.5 0 1 0 20.2 15.2z"/></svg></button></nav></header>
 <main id="top">
   <section class="intro"><h1>Building reliable AI systems,<br> from evaluation to infrastructure.</h1><p class="summary">LLM Engineering · GPU Systems · RAG · Evaluation · AI Agents</p></section>
@@ -13,12 +13,6 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
   </section>
 </main>
 <footer><span>© 2026 Sapir Pirski</span><span>AI Engineer</span><a href="#top">Back to top ↑</a></footer>
-<dialog class="project-dialog" id="project-details" aria-labelledby="detail-title" aria-describedby="detail-summary">
-  <div class="dialog-shell">
-    <button class="dialog-close" id="details-close" type="button" aria-label="Close project details" autofocus><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button>
-    <div id="details-content"></div>
-  </div>
-</dialog>
 <script id="project-catalog" type="application/json">
 {
   "technion-genai-recruitment-assistant": {
@@ -49,7 +43,9 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "calendar",
         "label": "Interviews"
       }
-    ]
+    ],
+    "titleOverlay": true,
+    "coverImage": "assets/projects/covers/ai-recruitment-assistant-illustrated.webp"
   },
   "skipper-30-quiz": {
     "title": "Skipper 30 — Maritime Exam Prep",
@@ -79,7 +75,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "check",
         "label": "Exam prep"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/skipper-30-quiz-color.webp"
   },
   "fate-solana-games": {
     "title": "FATE — AI-Powered Solana Gaming Platform",
@@ -109,7 +106,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chain",
         "label": "On-chain"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/fate-solana-games-color.webp"
   },
   "sea-gal-tavily-intelligence": {
     "title": "Tavily-Powered Maritime Market Intelligence",
@@ -139,7 +137,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "report",
         "label": "Intelligence"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/tavily-maritime-market-intelligence-color.webp"
   },
   "h100-fp8-quantization-benchmark": {
     "title": "H100 LLM Quantization & FP8 Serving Benchmark",
@@ -169,7 +168,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chart",
         "label": "Benchmarks"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/h100-fp8-quantization-benchmark-color.webp"
   },
   "gpt2-large-ddp-nebius": {
     "title": "GPT-2 Large Distributed Training on Nebius H100 GPUs",
@@ -199,7 +199,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chart",
         "label": "Scaling"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/gpt2-large-ddp-nebius-color.webp"
   },
   "nebius-serverless-genomic-triage": {
     "title": "Nebius Serverless Genomic Triage",
@@ -319,7 +320,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "report",
         "label": "Eval artifacts"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/coding-agent-eval-pipeline-color.webp"
   },
   "financebench-rag-evaluation": {
     "title": "FinanceBench RAG Evaluation",
@@ -379,7 +381,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chart",
         "label": "Observability"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/h100-text-to-sql-observability-color.webp"
   },
   "gpu-inference-roofline-cuda-graphs": {
     "title": "GPU Inference Optimization on H100",
@@ -409,7 +412,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chart",
         "label": "Performance"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/gpu-inference-roofline-cuda-graphs-color.webp"
   },
   "multimodal-vision-language": {
     "title": "Multimodal Vision-Language System",
@@ -439,7 +443,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chat",
         "label": "Captions + Q&A"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/multimodal-vision-language-color.webp"
   },
   "distributed-gpu-ddp-training": {
     "title": "Distributed GPU Training Pipeline with PyTorch DDP",
@@ -469,7 +474,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "neural",
         "label": "Trained model"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/distributed-gpu-ddp-training-color.webp"
   },
   "customer-service-agent": {
     "title": "Customer Service Data Analyst Agent",
@@ -499,7 +505,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chart",
         "label": "Analysis"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/customer-service-agent-color.webp"
   },
   "pytorch-optimization-project": {
     "title": "PyTorch Optimization for Text Classification",
@@ -529,7 +536,8 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
         "icon": "chart",
         "label": "Comparison"
       }
-    ]
+    ],
+    "coverImage": "assets/projects/covers/pytorch-optimization-project-color.webp"
   },
   "ai-powered-repository-summarizer-api": {
     "title": "AI-Powered Repository Summarizer API",
@@ -593,5 +601,5 @@ try{document.documentElement.dataset.theme=localStorage.getItem('portfolio-theme
   }
 }
 </script>
-<script src="portfolio.js?v=1" defer></script>
+<script src="portfolio.js?v=2" defer></script>
 </body></html>

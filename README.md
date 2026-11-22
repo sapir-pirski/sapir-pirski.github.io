@@ -18,8 +18,8 @@
 ## Cover preview
 
 <p align="center">
-  <img src="assets/projects/covers/technion-genai-recruitment-assistant.svg" width="540" alt="AI Recruitment Assistant cover with job documents, candidate chat, and interviews" />
-  <img src="assets/projects/covers/bank-assistant.svg" width="540" alt="Bank Assistant cover with documents, retrieval, and cited answers" />
+  <img src="assets/projects/covers/ai-recruitment-assistant-illustrated.webp" width="540" alt="Colorful recruitment illustration with candidate chat, job documents, and an interview calendar; the live card adds its title in HTML" />
+  <img src="assets/projects/bank-assistant-dark.webp" width="540" alt="Bank Assistant cover with documents, retrieval, and cited answers" />
 </p>
 
 ## What this portfolio highlights
@@ -34,12 +34,12 @@
 - Automatically loads current public repositories through the GitHub REST API.
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
 - Provides category filtering for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
-- Uses a shared 16:9 SVG cover system with a short title and three-stage project visual.
-- Keeps detailed project artwork in an accessible Details dialog with full-size image links.
-- Displays current GitHub stars, repository update dates, and independent repository links.
+- Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
+- Introduces text-free illustrated artwork with a crisp white/teal HTML title on the Recruitment Assistant card.
+- Displays current GitHub stars, repository update dates, and one GitHub link per card.
 - Supports responsive phone, tablet, and desktop layouts.
 - Includes accessible light and dark themes with saved user preference.
-- Gives covers, Details buttons, star counts, and repository links independent keyboard-accessible actions.
+- Keeps covers static; each card's GitHub link opens in the current tab without a Details popup.
 
 ## Technology
 
@@ -69,7 +69,7 @@ Public repository metadata
 Responsive portfolio cards
 ```
 
-The site is intentionally build-free. Repository metadata stays current, while presentation details remain curated in the JSON catalog inside [`index.html`](index.html). Card rendering and dialogs live in [`portfolio.js`](portfolio.js).
+The site is intentionally build-free. Repository metadata stays current, while presentation details remain curated in the JSON catalog inside [`index.html`](index.html). Card rendering lives in [`portfolio.js`](portfolio.js).
 
 ## Run locally
 
@@ -86,28 +86,26 @@ Open [http://localhost:8000](http://localhost:8000).
 ```text
 .
 ├── assets/
-│   ├── projects/       # SVG covers and detailed project artwork
+│   ├── projects/       # Original artwork, optimized covers, and generation prompts
 │   ├── fonts/          # Variable fonts and licenses
 │   ├── screenshots/    # README previews
 │   └── github-avatar.png
 ├── favicon.svg
 ├── index.html          # Page structure and curated project catalog
-├── portfolio.js        # Cards, GitHub metadata, filters, and Details dialog
+├── portfolio.js        # Cards, GitHub metadata, and filters
 ├── scripts/
-│   └── generate-covers.py # Rebuild the SVG cover assets
+│   └── generate-covers.py # Legacy SVG cover generator
 ├── styles.css          # Layout, themes, cards, and responsive behavior
 └── README.md
 ```
 
 ## Updating project covers
 
-Edit the JSON catalog in `index.html`, then regenerate the covers:
+Edit the JSON catalog in `index.html`. `coverImage` selects the card image and falls back to the retained original `detailImage`. Prefer optimized WebP assets; preserve the original artwork. Covers fill a 16:9 frame.
 
-```bash
-python3 scripts/generate-covers.py
-```
+For illustrations with a clean title area, set `titleOverlay` to `true` and supply two `coverTitle` lines. The title is rendered in HTML, white on the first line and teal on the second. Generate artwork without text and reserve the upper third for that heading.
 
-The generator uses only the Python standard library. Existing detailed artwork stays available through each card’s Details panel.
+The Recruitment Assistant illustration was created with the built-in image generation tool. Its [final prompt](assets/projects/prompts/recruitment-illustration.txt) is retained with the asset. Other cards use the earlier colorful artwork, with large PNGs served as smaller WebP copies. The legacy SVG generator and assets are retained but are not used for the curated project covers.
 
 ## Deployment
 

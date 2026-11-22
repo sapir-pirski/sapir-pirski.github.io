@@ -79,17 +79,17 @@ main,footer{width:min(1180px,calc(100% - 48px));margin:auto}
 .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
 .project-card{min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;transition:background-color .18s,border-color .18s,transform .18s,box-shadow .18s}
 .project-card:hover{background:var(--raised);border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.16)}
-.card-visual{width:100%;aspect-ratio:16/9;display:block;position:relative;flex:none;overflow:hidden;border:0;padding:0;background:#0b1018;cursor:pointer}
+.card-visual{width:100%;aspect-ratio:16/9;display:block;position:relative;flex:none;overflow:hidden;background:#0b1018;container-type:inline-size}
 .card-visual img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
-.card-visual:focus-visible{outline-offset:-5px;z-index:1}
+.cover-heading{position:absolute;top:7.5%;left:5.55%;right:5.55%;color:#f1f5f9;font:700 clamp(1.125rem,6.1cqw,3rem)/1.08 var(--font-sans);letter-spacing:-.035em}
+.cover-heading span{display:block}
+.cover-heading span+span{color:#2dd4bf}
 .card-content{padding:24px;display:flex;flex-direction:column;flex:1;gap:12px;min-width:0}
 .card-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
 .card-category{font:500 .75rem/1.4 var(--font-sans);color:var(--accent);background:var(--soft);padding:5px 9px;border-radius:6px}
 .repo-stars{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:32px;padding:4px 6px;border:1px solid transparent;border-radius:6px;font:400 .8125rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums;color:var(--muted);flex:none}
 .repo-stars svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
-.repo-stars:hover{border-color:var(--line);color:var(--accent)}
 .project-card h3{font-size:1.3125rem;font-weight:600;line-height:1.3;letter-spacing:-.02em;margin:0;overflow-wrap:anywhere}
-.project-card h3 a:hover{color:var(--link)}
 .card-summary{font-size:.9375rem;font-weight:400;line-height:1.6;color:var(--muted);margin:0}
 .skill-list{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin:0;padding:0;min-width:0}
 .card-content>.skill-list{margin-top:auto;padding-top:2px}
@@ -99,31 +99,12 @@ main,footer{width:min(1180px,calc(100% - 48px));margin:auto}
 .card-updated{font:400 .75rem/1.6 var(--font-mono);font-variant-numeric:tabular-nums;color:var(--muted)}
 .card-updated time{white-space:nowrap}
 .card-actions{display:flex;align-items:center;gap:16px}
-.card-actions a,.card-actions button{display:inline-flex;align-items:center;min-height:44px;padding:0;border:0;background:transparent;font:500 .875rem/1.5 var(--font-sans);cursor:pointer}
-.card-actions button{color:var(--link)}
-.card-actions a{color:var(--accent)}
-.card-actions a:hover,.card-actions button:hover{text-decoration:underline;text-underline-offset:4px}
+.card-actions a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font:500 .875rem/1.5 var(--font-sans)}
+.card-actions a:hover{text-decoration:underline;text-underline-offset:4px}
 .loading,.empty{grid-column:1/-1;padding:60px 0;text-align:center;color:var(--muted)}
 .loading a{color:var(--link)}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;display:flex;justify-content:space-between;color:var(--muted);font-size:.75rem}
 footer a{color:var(--link)}
-body.details-open{overflow:hidden}
-.project-dialog{width:min(960px,calc(100% - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);overflow:auto;overscroll-behavior:contain}
-.project-dialog::backdrop{background:rgba(3,7,14,.82);backdrop-filter:blur(8px)}
-.dialog-shell{position:relative;padding:28px}
-.dialog-close{position:absolute;right:20px;top:20px;width:44px;height:44px;display:grid;place-items:center;background:var(--raised);color:var(--muted);border:1px solid var(--line);border-radius:8px;cursor:pointer}
-.dialog-close:hover{color:var(--ink);border-color:var(--accent)}
-.dialog-close svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
-.detail-kicker{display:flex;align-items:center;gap:12px;padding-right:52px;min-height:36px}
-#detail-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:600;line-height:1.25;letter-spacing:-.025em;margin:20px 0 12px;overflow-wrap:anywhere}
-#detail-summary{font-size:1rem;line-height:1.6;color:var(--muted);margin:0;max-width:75ch}
-.detail-skills{margin:20px 0 24px}
-.detail-figure{margin:0}
-.detail-figure>a{display:block;background:#0b1018;border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.detail-figure img{display:block;width:100%;height:auto}
-.detail-figure figcaption{margin-top:10px;font-size:.8125rem;color:var(--link)}
-.detail-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}
-.repository-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:7px;background:var(--accent);color:var(--accent-ink);font-size:.875rem;font-weight:600}
 @media(max-width:920px){.project-grid{grid-template-columns:minmax(0,1fr)}}
 @media(max-width:760px){
   .site-header{padding:0 18px}
@@ -144,8 +125,6 @@ body.details-open{overflow:hidden}
   .intro h1{font-size:clamp(1.875rem,8vw,2.125rem);line-height:1.15}
   .intro h1 br{display:none}
   .project-card h3{font-size:1.25rem}
-  .dialog-shell{padding:20px}
-  .dialog-close{right:16px;top:16px}
 }
 @media(max-width:480px){
   .site-header nav a:first-child{display:inline-flex}

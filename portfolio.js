@@ -1,8 +1,6 @@
 const projectCatalog = JSON.parse(document.querySelector('#project-catalog').textContent);
 const grid = document.querySelector('#project-grid');
 const empty = document.querySelector('#empty');
-const detailsDialog = document.querySelector('#project-details');
-const detailsContent = document.querySelector('#details-content');
 const themeToggle = document.querySelector('#theme-toggle');
 const dateFormatter = new Intl.DateTimeFormat('en-US', {month:'short', day:'numeric', year:'numeric', timeZone:'UTC'});
 const numberFormatter = new Intl.NumberFormat('en-US');
@@ -45,16 +43,16 @@ function presentationFor(project) {
     title: curated?.title || project.name,
     summary: curated?.summary || project.description || 'A public engineering project by Sapir Pirski.',
     skills: curated?.skills || [],
-    cover: `assets/projects/covers/${curated ? slug : 'project'}.svg`,
-    detailImage: curated?.detailImage || '',
+    cover: curated?.coverImage || curated?.detailImage || 'assets/projects/covers/project.svg',
+    coverTitle: curated?.titleOverlay ? curated.coverTitle : [],
   };
 }
 
-function starLink(project, title) {
+function starCount(project, title) {
   const available = Number.isInteger(project.stargazers_count) && project.stargazers_count >= 0;
   const count = available ? numberFormatter.format(project.stargazers_count) : '—';
   const label = available ? `${title}: ${count} GitHub ${project.stargazers_count === 1 ? 'star' : 'stars'}` : `${title}: GitHub star count unavailable`;
-  return `<a class="repo-stars" href="${escapeHtml(project.html_url)}/stargazers" target="_blank" rel="noreferrer" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span>${count}</span></a>`;
+  return `<span class="repo-stars" role="img" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span aria-hidden="true">${count}</span></span>`;
 }
 
 function updatedDate(project) {
@@ -70,50 +68,24 @@ function skillList(skills, extraClass = '') {
 function render() {
   const visible = projects.filter(project => filter === 'All' || project.category === filter);
   grid.innerHTML = visible.map((project, index) => {
-    const {title, summary, skills, cover} = presentationFor(project);
+    const {title, summary, skills, cover, coverTitle} = presentationFor(project);
     return `<article class="project-card" aria-labelledby="project-${project.id}">
-      <button class="card-visual" type="button" data-project-details="${project.id}" aria-label="View ${escapeHtml(title)} details">
-        <img src="${cover}" alt="" width="1440" height="810" loading="${index < 2 ? 'eager' : 'lazy'}" fetchpriority="${index === 0 ? 'high' : 'auto'}" decoding="async">
-      </button>
+      <div class="card-visual">
+        <img src="${escapeHtml(cover)}" alt="" width="1440" height="810" loading="${index < 2 ? 'eager' : 'lazy'}" fetchpriority="${index === 0 ? 'high' : 'auto'}" decoding="async">
+        ${coverTitle.length ? `<div class="cover-heading" aria-hidden="true">${coverTitle.map(line => `<span>${escapeHtml(line)}</span>`).join('')}</div>` : ''}
+      </div>
       <div class="card-content">
-        <div class="card-meta"><span class="card-category">${escapeHtml(project.category)}</span>${starLink(project, title)}</div>
-        <h3 id="project-${project.id}"><a href="${escapeHtml(project.html_url)}" target="_blank" rel="noreferrer">${escapeHtml(title)}</a></h3>
+        <div class="card-meta"><span class="card-category">${escapeHtml(project.category)}</span>${starCount(project, title)}</div>
+        <h3 id="project-${project.id}">${escapeHtml(title)}</h3>
         <p class="card-summary">${escapeHtml(summary)}</p>
         ${skillList(skills)}
-        <div class="card-footer">${updatedDate(project)}<div class="card-actions"><button type="button" data-project-details="${project.id}" aria-label="View ${escapeHtml(title)} details">Details</button><a href="${escapeHtml(project.html_url)}" target="_blank" rel="noreferrer" aria-label="View ${escapeHtml(title)} on GitHub">GitHub</a></div></div>
+        <div class="card-footer">${updatedDate(project)}<div class="card-actions"><a href="${escapeHtml(project.html_url)}" aria-label="View ${escapeHtml(title)} on GitHub">GitHub</a></div></div>
       </div>
     </article>`;
   }).join('');
   empty.hidden = visible.length > 0;
   document.querySelector('#project-count').textContent = projects.length;
 }
-
-function openDetails(project) {
-  const {title, summary, skills, detailImage} = presentationFor(project);
-  detailsContent.innerHTML = `<div class="detail-kicker"><span class="card-category">${escapeHtml(project.category)}</span>${starLink(project, title)}</div>
-    <h2 id="detail-title">${escapeHtml(title)}</h2>
-    <p id="detail-summary">${escapeHtml(summary)}</p>
-    ${skillList(skills, 'detail-skills')}
-    ${detailImage ? `<figure class="detail-figure"><a href="${detailImage}" target="_blank" rel="noreferrer" aria-label="Open full-size ${escapeHtml(title)} project visual"><img src="${detailImage}" alt="Detailed project visual for ${escapeHtml(title)}" decoding="async"></a><figcaption><a href="${detailImage}" target="_blank" rel="noreferrer">Open full-size project visual</a></figcaption></figure>` : ''}
-    <div class="detail-footer">${updatedDate(project)}<a class="repository-link" href="${escapeHtml(project.html_url)}" target="_blank" rel="noreferrer">View GitHub repository</a></div>`;
-  document.body.classList.add('details-open');
-  detailsDialog.showModal();
-}
-
-grid.addEventListener('click', event => {
-  const trigger = event.target.closest('[data-project-details]');
-  if (!trigger) return;
-  const project = projects.find(project => String(project.id) === trigger.dataset.projectDetails);
-  if (project) openDetails(project);
-});
-document.querySelector('#details-close').addEventListener('click', () => detailsDialog.close());
-detailsDialog.addEventListener('click', event => {
-  if (event.target === detailsDialog) detailsDialog.close();
-});
-detailsDialog.addEventListener('close', () => {
-  document.body.classList.remove('details-open');
-  detailsContent.replaceChildren();
-});
 
 document.querySelectorAll('.filters button').forEach(button => {
   button.addEventListener('click', () => {

@@ -1,0 +1,13 @@
+Generation mode: built-in image_gen tool.
+Asset: assets/projects/covers/ai-recruitment-assistant-illustrated.webp
+Delivery: resized to 1440 x 810 and encoded as WebP at quality 86.
+Title: rendered separately in HTML with Geist Sans, white and teal.
+
+Final generation prompt:
+Use case: stylized-concept illustration for an AI engineering portfolio project card.
+Canvas: landscape, exact 16:9 composition, 1536 by 864 preferred. Full bleed.
+Background: deep navy charcoal (#0B1018), softly lit, subtle blue and teal depth. The upper 34% of the entire canvas must stay clean, dark, uncluttered negative space for a two-line title that will be added separately in HTML.
+Subject in the lower 66%: a polished, colorful, dimensional illustration that immediately communicates an AI recruitment assistant. A friendly candidate avatar in a luminous blue conversation interface, a small stack of job documents with a briefcase, and an interview calendar with a clear checkmark form one cohesive scene. These are large recognizable objects, with the conversation as the central focus. Suggest chat through colored message bubbles without writing. The calendar uses simple squares without numerals.
+Style: rich modern 3D editorial product illustration, tactile materials, beveled translucent glass panels, soft shadows, vivid cobalt blue, cyan, teal and violet with a small warm coral accent. Strong silhouettes and generous breathing room, readable when reduced to a 550px wide card. Elegant restrained lighting, substantive forms and layered depth.
+Composition: all important objects fit comfortably in the lower area, inset at least 5% from canvas edges. Preserve the clean dark title area above the scene. The illustration should feel expressive and colorful, clearly about candidate conversations and scheduling.
+Constraints: absolutely no text, letters, numbers, words, labels, captions, logos, watermarks or UI buttons containing text. No border, no letterboxing, no giant robot, no extraneous objects.
