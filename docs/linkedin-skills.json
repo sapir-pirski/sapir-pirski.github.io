@@ -1,6 +1,6 @@
 {
   "verified_on": "2026-11-22",
-  "policy": "Card tags name the implementation actually used in each repository. LinkedIn exact-name verification is separate. A related LinkedIn skill is not an exact match and must never replace a distinct technology such as LangGraph with LangChain. Unconfirmed names are not claimed to be absent from LinkedIn.",
+  "policy": "Card tags identify technologies actually used and capabilities demonstrated in the repository, selected for relevance to AI engineering roles. LinkedIn exact-name verification is separate. A related LinkedIn skill is not an exact match and must never replace a distinct technology such as LangGraph with LangChain. Unconfirmed names are not claimed to be absent from LinkedIn.",
   "sources": [
     {
       "method": "LinkedIn Learning Skills you’ll gain",
@@ -283,47 +283,41 @@
           }
         },
         {
-          "displayed_skill": "pgvector",
+          "displayed_skill": "PostgreSQL",
           "repository_evidence": [
             {
               "path": "requirements.txt",
-              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/requirements.txt#L19",
-              "matching_text": "pgvector==0.5.1"
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/requirements.txt#L17",
+              "matching_text": "psycopg[binary,pool]==3.3.6"
             },
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/README.md#L53",
-              "matching_text": "PostgreSQL/pgvector**. The catalog contains the assignment's Python Developer role"
+              "path": "app/rag/store.py",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/rag/store.py#L1",
+              "matching_text": "\"\"\"RAG chunks and exact cosine retrieval in the application's PostgreSQL database.\"\"\""
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "PostgreSQL",
-              "Vector Databases"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
-          "displayed_skill": "ModernBERT",
+          "displayed_skill": "Fine Tuning",
           "repository_evidence": [
             {
               "path": "app/fine_tuning/huggingface.py",
-              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/fine_tuning/huggingface.py#L1",
-              "matching_text": "\"\"\"Explicit local ModernBERT training; benchmark text is never uploaded.\"\"\""
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/fine_tuning/huggingface.py#L89",
+              "matching_text": "optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5, weight_decay=0.01)"
             },
             {
-              "path": "app/agents/backends/huggingface.py",
-              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/agents/backends/huggingface.py#L1",
-              "matching_text": "\"\"\"Local ModernBERT CPU inference with optional pinned model-file downloads.\"\"\""
+              "path": "app/fine_tuning/huggingface.py",
+              "url": "https://github.com/sapir-pirski/technion-genai-recruitment-assistant/blob/main/app/fine_tuning/huggingface.py#L109",
+              "matching_text": "optimizer.step()"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Hugging Face Products",
-              "Fine Tuning"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -391,24 +385,17 @@
           }
         },
         {
-          "displayed_skill": "vinext",
+          "displayed_skill": "Responsive Web Design",
           "repository_evidence": [
             {
-              "path": "vite.config.ts",
-              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/vite.config.ts#L1",
-              "matching_text": "import vinext from \"vinext\";"
-            },
-            {
-              "path": "package.json",
-              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/package.json#L9",
-              "matching_text": "\"dev\": \"WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev\","
+              "path": "README.md",
+              "url": "https://github.com/sapir-pirski/skipper-30-quiz/blob/main/README.md#L7",
+              "matching_text": "A complete Hebrew question bank with Russian and English translation help and a mobile-first practice experience."
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Application Development"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -579,19 +566,22 @@
           }
         },
         {
-          "displayed_skill": "Nebius Token Factory",
+          "displayed_skill": "Python (Programming Language)",
           "repository_evidence": [
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/README.md#L21",
-              "matching_text": "Sea-Gal Intelligence is a licensing-first research system for Israeli skipper and boat-licensing information, competitors, yacht-sale markets, public-site structure and content opportunities. It combines Tavily discovery with an OpenAI-compatible Neb"
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/requirements.txt#L2",
+              "matching_text": "tavily-python>=0.5,<1"
+            },
+            {
+              "path": "pyproject.toml",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/pyproject.toml#L10",
+              "matching_text": "requires-python = \">=3.12\""
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Large Language Models (LLM)"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -616,24 +606,22 @@
           }
         },
         {
-          "displayed_skill": "SQLite",
+          "displayed_skill": "Data Engineering",
           "repository_evidence": [
             {
-              "path": "src/sea_gal_intel/database.py",
-              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/database.py#L4",
-              "matching_text": "import sqlite3"
+              "path": "src/sea_gal_intel/pipeline.py",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/pipeline.py#L213",
+              "matching_text": "source_id = self.database.upsert_source("
             },
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/README.md#L21",
-              "matching_text": "Sea-Gal Intelligence is a licensing-first research system for Israeli skipper and boat-licensing information, competitors, yacht-sale markets, public-site structure and content opportunities. It combines Tavily discovery with an OpenAI-compatible Neb"
+              "path": "src/sea_gal_intel/pipeline.py",
+              "url": "https://github.com/sapir-pirski/sea-gal-tavily-intelligence/blob/main/src/sea_gal_intel/pipeline.py#L246",
+              "matching_text": "unique_hits.setdefault(hit.normalized_url, (hit, source_id))"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "SQL"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -698,24 +686,22 @@
           }
         },
         {
-          "displayed_skill": "BF16",
+          "displayed_skill": "PyTorch",
           "repository_evidence": [
             {
               "path": "requirements.txt",
-              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L1",
-              "matching_text": "﻿# L6 home assignment — Quantization + BF16 vs on-the-fly 8-bit serving."
+              "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/requirements.txt#L4",
+              "matching_text": "# vLLM pins its own compatible torch build, so we do NOT pin torch separately"
             },
             {
               "path": "quant_serving.ipynb",
               "url": "https://github.com/sapir-pirski/h100-fp8-quantization-benchmark/blob/main/quant_serving.ipynb",
-              "matching_text": "BITS = {\"fp16/bf16\": 16, \"fp8\": 8, \"int8\": 8, \"int4\": 4}"
+              "matching_text": "import torch"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Deep Learning"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -1034,44 +1020,37 @@
           }
         },
         {
-          "displayed_skill": "GAE",
+          "displayed_skill": "Reinforcement Learning",
           "repository_evidence": [
             {
               "path": "ppo_glassbox_llm.ipynb",
               "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
-              "matching_text": "gae_lambda: float = 0.95      # GAE bias/variance knob"
+              "matching_text": "def ppo_update(seq, L, T, old_lp, old_V, adv, ret, cfg, opt, mask=None, train_value=True):"
             },
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/README.md#L9",
-              "matching_text": "A compact, rerunnable PPO/RLHF-style notebook for seeing the full training loop instead of hiding it behind a trainer abstraction. The notebook uses GPT-2 and transparent reward functions so rollout, KL penalty, GAE, PPO clipping, value learning, bet"
+              "path": "ppo_glassbox_llm.ipynb",
+              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
+              "matching_text": "torch.clamp(ratio, 1 - cfg.clip_eps, 1 + cfg.clip_eps) * adv_mb,"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Reinforcement Learning"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
-          "displayed_skill": "KL Control",
+          "displayed_skill": "Hugging Face Transformers",
           "repository_evidence": [
             {
               "path": "ppo_glassbox_llm.ipynb",
               "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/ppo_glassbox_llm.ipynb",
-              "matching_text": "def build_rewards(R, kl_tok, beta, mask=None, eos_seen=None, missing_eos_penalty=0.0):"
-            },
-            {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/ppo-glassbox-llm/blob/main/README.md#L9",
-              "matching_text": "A compact, rerunnable PPO/RLHF-style notebook for seeing the full training loop instead of hiding it behind a trainer abstraction. The notebook uses GPT-2 and transparent reward functions so rollout, KL penalty, GAE, PPO clipping, value learning, bet"
+              "matching_text": "from transformers import AutoModelForCausalLM, AutoTokenizer"
             }
           ],
           "linkedin": {
             "exact_name_status": "not_confirmed",
             "related_verified_skills": [
-              "Reinforcement Learning"
+              "Hugging Face Products"
             ]
           }
         }
@@ -1335,24 +1314,22 @@
           }
         },
         {
-          "displayed_skill": "BGE Reranking",
+          "displayed_skill": "Retrieval-Augmented Generation (RAG)",
           "repository_evidence": [
             {
               "path": "rag_pgvector/assignment_2_rag_pgvector.ipynb",
               "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_pgvector/assignment_2_rag_pgvector.ipynb",
-              "matching_text": "\"experiment\": \"bge_reranker_top4\","
+              "matching_text": "ORDER BY embedding <=> %(embedding)s::vector"
             },
             {
-              "path": "rag_faiss/assignment_2_rag_faiss.ipynb",
-              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_faiss/assignment_2_rag_faiss.ipynb",
-              "matching_text": "\"experiment\": \"bge_reranker_top4\","
+              "path": "rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "url": "https://github.com/sapir-pirski/financebench-rag-evaluation/blob/main/rag_pgvector/assignment_2_rag_pgvector.ipynb",
+              "matching_text": "- Use only the retrieved FinanceBench context in the user message."
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Retrieval-Augmented Generation (RAG)"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -1897,24 +1874,22 @@
           }
         },
         {
-          "displayed_skill": "ReAct",
+          "displayed_skill": "Model Context Protocol (MCP)",
           "repository_evidence": [
             {
-              "path": "src/agent.py",
-              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/src/agent.py#L1",
-              "matching_text": "\"\"\"LangGraph ReAct agent for customer service dataset analysis.\"\"\""
+              "path": "requirements.txt",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/requirements.txt#L10",
+              "matching_text": "fastmcp==3.3.1"
             },
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/README.md#L4",
-              "matching_text": "![LangGraph](https://img.shields.io/badge/LangGraph-ReAct%20workflow-1f6feb)"
+              "path": "mcp_server.py",
+              "url": "https://github.com/sapir-pirski/customer-service-agent/blob/main/mcp_server.py#L1",
+              "matching_text": "\"\"\"FastMCP server exposing customer service dataset analysis tools.\"\"\""
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "AI Agents"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         }
       ]
@@ -2101,24 +2076,22 @@
           }
         },
         {
-          "displayed_skill": "JSON Mode",
+          "displayed_skill": "Large Language Models (LLM)",
           "repository_evidence": [
             {
               "path": "app/services/llm_service.py",
-              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/llm_service.py#L112",
-              "matching_text": "response_format={\"type\": \"json_object\"},"
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/llm_service.py#L106",
+              "matching_text": "return client.chat.completions.create("
             },
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/README.md#L152",
-              "matching_text": "The LLM call uses a system/user chat format compatible with `meta-llama/Llama-3.3-70B-Instruct`. Repository metadata and file excerpts are treated as untrusted reference material, so instructions found inside repository files are ignored. The prompt "
+              "path": "app/services/llm_service.py",
+              "url": "https://github.com/sapir-pirski/ai-powered-repository-summarizer-api/blob/main/app/services/llm_service.py#L107",
+              "matching_text": "model=model,"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "JSON"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         }
       ]
@@ -2164,19 +2137,22 @@
           }
         },
         {
-          "displayed_skill": "bitsandbytes",
+          "displayed_skill": "Fine Tuning",
           "repository_evidence": [
             {
               "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
               "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
-              "matching_text": "%pip install --disable-pip-version-check -q bitsandbytes datasets"
+              "matching_text": "from peft import LoraConfig, TaskType, get_peft_model, prepare_model_for_kbit_training"
+            },
+            {
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "model = get_peft_model(model, lora_config)"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Fine Tuning"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         },
         {
@@ -2196,24 +2172,22 @@
           }
         },
         {
-          "displayed_skill": "Attention",
+          "displayed_skill": "PyTorch",
           "repository_evidence": [
             {
               "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
               "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
-              "matching_text": "# Attention experiment constants"
+              "matching_text": "import torch"
             },
             {
-              "path": "README.md",
-              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/README.md#L1",
-              "matching_text": "# From Fine-Tuning to Attention Inside LLMs"
+              "path": "notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "url": "https://github.com/sapir-pirski/from-finetuning-to-attention-inside-llms/blob/main/notebooks/From_Finetuning_to_Attention_Inside_LLMs.ipynb",
+              "matching_text": "import torch.nn.functional as F"
             }
           ],
           "linkedin": {
-            "exact_name_status": "not_confirmed",
-            "related_verified_skills": [
-              "Transformer Models"
-            ]
+            "exact_name_status": "verified",
+            "related_verified_skills": []
           }
         }
       ]

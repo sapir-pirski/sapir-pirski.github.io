@@ -162,7 +162,7 @@ test('blocked storage does not prevent view switching or searching', async () =>
 test('search spans displayed titles, descriptions and stack, ignoring case and extra whitespace', async () => {
   const app = await load();
   for (const [query, expected] of [
-    [' RECRUITMENT   pgvector ', [1]],
+    [' RECRUITMENT   postgresql ', [1]],
     ['seamanship', [3]],
     ['React TypeScript', [3]],
     ['PDFs LangGraph', [1]],
