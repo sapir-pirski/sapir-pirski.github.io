@@ -19,7 +19,7 @@
 
 <p align="center">
   <img src="assets/projects/covers/ai-recruitment-assistant-illustrated.webp" width="540" alt="Colorful recruitment illustration with candidate chat, job documents, and an interview calendar; the live card adds its title in HTML" />
-  <img src="assets/projects/bank-assistant-dark.webp" width="540" alt="Bank Assistant cover with documents, retrieval, and cited answers" />
+  <img src="assets/projects/covers/bank-assistant-illustrated.webp" width="540" alt="Colorful banking policy illustration with documents, a conversation, linked sources, and a vault; the live card adds its title in HTML" />
 </p>
 
 ## What this portfolio highlights
@@ -35,7 +35,7 @@
 - Applies curated project titles, artwork, categories, and five relevant skill tags per card.
 - Provides category filtering for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
 - Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
-- Introduces text-free illustrated artwork with a crisp white/teal HTML title on the Recruitment Assistant card.
+- Gives every curated project its own text-free 3D illustration and a crisp two-line white/teal HTML title.
 - Displays current GitHub stars, repository update dates, and one GitHub link per card.
 - Supports responsive phone, tablet, and desktop layouts.
 - Includes accessible light and dark themes with saved user preference.
@@ -105,7 +105,7 @@ Edit the JSON catalog in `index.html`. `coverImage` selects the card image and f
 
 For illustrations with a clean title area, set `titleOverlay` to `true` and supply two `coverTitle` lines. The title is rendered in HTML, white on the first line and teal on the second. Generate artwork without text and reserve the upper third for that heading.
 
-The Recruitment Assistant illustration was created with the built-in image generation tool. Its [final prompt](assets/projects/prompts/recruitment-illustration.txt) is retained with the asset. Other cards use the earlier colorful artwork, with large PNGs served as smaller WebP copies. The legacy SVG generator and assets are retained but are not used for the curated project covers.
+All 19 illustrated covers were created with the built-in image generation tool and optimized to 1440 × 810 WebP files. The [Recruitment Assistant prompt](assets/projects/prompts/recruitment-illustration.txt) and [prompt set for the other 18 covers](assets/projects/prompts/illustrated-covers.json) are retained with their asset paths. The approved Recruitment illustration is the style reference for the set. Original artwork and the legacy SVG generator are retained but are not used for the curated project covers.
 
 ## Deployment
 
