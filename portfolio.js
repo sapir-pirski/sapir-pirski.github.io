@@ -121,7 +121,7 @@ function render() {
   });
   grid.innerHTML = visible.map((project, index) => {
     const {title, summary, skills, cover, coverTitle} = presentationFor(project);
-    return `<article class="project-card" aria-labelledby="project-${project.id}">
+    return `<article class="project-card" data-category="${escapeHtml(project.category)}" aria-labelledby="project-${project.id}">
       <div class="card-visual">
         <img src="${escapeHtml(cover)}" alt="" width="1440" height="810" loading="${index < 2 ? 'eager' : 'lazy'}" fetchpriority="${index === 0 ? 'high' : 'auto'}" decoding="async">
         ${coverTitle.length ? `<div class="cover-heading" aria-hidden="true">${coverTitle.map(line => `<span>${escapeHtml(line)}</span>`).join('')}</div>` : ''}

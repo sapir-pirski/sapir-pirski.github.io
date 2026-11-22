@@ -39,7 +39,8 @@
 - Offers Grid and Compact views with a saved visitor preference; first-time visitors see the illustrated grid.
 - Curates categories by project purpose for LLMs, GPU infrastructure, RAG/evaluation, ML/NLP, and applications.
 - Uses consistent 16:9 frames with colorful project artwork on dark backgrounds.
-- Gives every curated project its own text-free 3D illustration and a crisp two-line white/teal HTML title.
+- Gives every curated project its own text-free 3D illustration and a crisp two-line white/category-accent HTML title.
+- Uses emerald for LLM & Agents, blue for GPU & Infra, violet for RAG & Eval, amber for ML & NLP, and coral for Apps across filters, badges, borders, and cover lighting. CSS overlays preserve the original artwork; card text areas and the All filter stay neutral.
 - Displays current GitHub stars and orders projects by their latest repository update.
 - Separates the GitHub-reported repository language from the curated project technology stack.
 - Supports responsive phone, tablet, and desktop layouts.
