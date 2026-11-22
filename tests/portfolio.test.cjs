@@ -223,16 +223,18 @@ test('purpose categories override hosting words, including known and future agen
   assert.equal(vm.runInContext('categoryFor({name:"fate"})', app.context), 'Apps');
 });
 
-test('GitHub language is separate from stack; title/star links and footer removal survive filtering', async () => {
+test('repository language sits between category and stars; links and footer removal survive filtering', async () => {
   const app = await load();
   app.search('React');
-  assert.match(app.grid.innerHTML, /GitHub language: <strong>Python<\/strong>/);
+  assert.match(app.grid.innerHTML, /class="repo-language"[^>]*>Python<\/span>/);
+  assert.doesNotMatch(app.grid.innerHTML, /GitHub language|stack-heading/);
   assert.doesNotMatch(app.grid.innerHTML, /Project stack/);
   assert.match(app.grid.innerHTML, /<li>TypeScript<\/li>/);
   assert.match(app.grid.innerHTML, /<li>React\.js<\/li>/);
   app.search('');
   const cards = [...app.grid.innerHTML.matchAll(/<article\b[\s\S]*?<\/article>/g)].map(match => match[0]);
   for (const card of cards) {
+    assert.match(card, /class="card-meta"><div class="card-meta-labels"><span class="card-category">[^<]+<\/span><span class="repo-language"[^>]*>[^<]+<\/span><\/div><a class="repo-stars"/);
     const title = card.match(/<h3[^>]*><a href="([^"]+)">/);
     const stars = card.match(/<a class="repo-stars" href="([^"]+)"/);
     assert.equal(stars[1], `${title[1]}/stargazers`);
@@ -240,7 +242,7 @@ test('GitHub language is separate from stack; title/star links and footer remova
     assert.doesNotMatch(card, /card-footer|<time|data-project-details|target=/);
   }
   assert.match(app.grid.innerHTML, /GitHub star count unavailable/);
-  assert.match(app.grid.innerHTML, /GitHub language: <strong>Not reported<\/strong>/);
+  assert.match(app.grid.innerHTML, /class="repo-language"[^>]*>Not reported<\/span>/);
 });
 
 test('API errors do not report zero projects, while a real empty collection does', async () => {

@@ -85,9 +85,8 @@ function starCount(project, title) {
   return `<a class="repo-stars" href="${escapeHtml(project.html_url)}/stargazers" aria-label="${escapeHtml(label)}" title="${escapeHtml(label)}">${starIcon}<span aria-hidden="true">${count}</span></a>`;
 }
 
-function technologyStack(skills, language) {
+function technologyStack(skills) {
   return `<div class="card-stack">
-    <div class="stack-heading"><span class="repo-language" title="Primary repository language reported by GitHub">GitHub language: <strong>${escapeHtml(language || 'Not reported')}</strong></span></div>
     ${skills.length ? `<ul class="skill-list" aria-label="Project technology stack">${skills.map(skill => `<li>${escapeHtml(skill)}</li>`).join('')}</ul>` : ''}
   </div>`;
 }
@@ -128,10 +127,10 @@ function render() {
         ${coverTitle.length ? `<div class="cover-heading" aria-hidden="true">${coverTitle.map(line => `<span>${escapeHtml(line)}</span>`).join('')}</div>` : ''}
       </div>
       <div class="card-content">
-        <div class="card-meta"><span class="card-category">${escapeHtml(project.category)}</span>${starCount(project, title)}</div>
+        <div class="card-meta"><div class="card-meta-labels"><span class="card-category">${escapeHtml(project.category)}</span><span class="repo-language" title="Primary repository language reported by GitHub">${escapeHtml(project.language || 'Not reported')}</span></div>${starCount(project, title)}</div>
         <h3 id="project-${project.id}"><a href="${escapeHtml(project.html_url)}">${escapeHtml(title)}</a></h3>
         <p class="card-summary">${escapeHtml(summary)}</p>
-        ${technologyStack(skills, project.language)}
+        ${technologyStack(skills)}
       </div>
     </article>`;
   }).join('');
