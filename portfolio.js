@@ -127,7 +127,7 @@ function render() {
         ${coverTitle.length ? `<div class="cover-heading" aria-hidden="true">${coverTitle.map(line => `<span>${escapeHtml(line)}</span>`).join('')}</div>` : ''}
       </div>
       <div class="card-content">
-        <div class="card-meta"><div class="card-meta-labels"><span class="card-category">${escapeHtml(project.category)}</span><span class="repo-language" title="Primary repository language reported by GitHub">${escapeHtml(project.language || 'Not reported')}</span></div>${starCount(project, title)}</div>
+        <div class="card-meta"><div class="card-meta-labels"><span class="card-category">${escapeHtml(project.category)}</span><span class="repo-language" data-language="${escapeHtml(project.language || '')}" title="Primary repository language reported by GitHub">${escapeHtml(project.language || 'Not reported')}</span></div>${starCount(project, title)}</div>
         <h3 id="project-${project.id}"><a href="${escapeHtml(project.html_url)}">${escapeHtml(title)}</a></h3>
         <p class="card-summary">${escapeHtml(summary)}</p>
         ${technologyStack(skills)}

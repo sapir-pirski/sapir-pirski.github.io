@@ -109,7 +109,13 @@ main,footer{width:min(1180px,calc(100% - 48px));margin:auto}
 .card-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
 .card-meta-labels{display:flex;align-items:center;flex-wrap:wrap;gap:6px 10px;min-width:0}
 .card-category{font:500 .75rem/1.4 var(--font-sans);color:var(--accent);background:var(--soft);padding:5px 9px;border-radius:6px}
-.repo-language{color:var(--muted);font:400 .75rem/1.5 var(--font-sans);overflow-wrap:anywhere}
+.repo-language{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font:400 .75rem/1.5 var(--font-sans);overflow-wrap:anywhere}
+.repo-language::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--language-color,#8b949e);flex:none}
+/* GitHub Linguist colors: https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml */
+.repo-language[data-language="Python"]{--language-color:#3572a5}
+.repo-language[data-language="Jupyter Notebook"]{--language-color:#da5b0b}
+.repo-language[data-language="TypeScript"]{--language-color:#3178c6}
+.repo-language[data-language="HTML"]{--language-color:#e34c26}
 .repo-stars{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-width:44px;min-height:32px;padding:4px 6px;border:1px solid transparent;border-radius:6px;font:400 .8125rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums;color:var(--muted);flex:none}
 .repo-stars svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linejoin:round}
 .repo-stars:hover{border-color:var(--line);color:var(--accent)}
